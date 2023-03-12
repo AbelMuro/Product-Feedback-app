@@ -1,0 +1,41 @@
+.container{
+    width: 255px;
+    height: 166px;
+    padding: 24px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    row-gap: 14px;
+}
+
+.option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#F2F4FF;
+    border-radius: 10px;
+    min-width: 48px;
+    height: 30px;
+    padding: 0px 16px;
+    cursor: pointer;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18.79px;
+
+    color: #4661E6;
+}
+
+.option:hover:not(.optionChoosen){
+    background-color: #CFD7FF;
+}
+
+.optionChoosen{
+    background-color: #4661E6;
+    color: white;
+}

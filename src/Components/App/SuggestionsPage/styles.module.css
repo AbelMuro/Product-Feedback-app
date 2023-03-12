@@ -1,0 +1,12 @@
+.container{
+    width: 1160px;
+    display: flex;
+    gap: 30px;
+    margin-top: 94px;
+}
+
+.filterSection{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

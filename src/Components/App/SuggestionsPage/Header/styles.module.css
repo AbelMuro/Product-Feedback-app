@@ -1,0 +1,33 @@
+.container{
+    width: 255px;
+    height: 137px;
+    background-image: url('./images/background-header-desktop.png');
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0px 0px 24px 24px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 153px;
+    height: 51px;
+}
+
+.title{
+    font-family: var(--font);
+    font-size: var(--h2-font-size);
+    line-height: var(--h2-line-height);
+    letter-spacing: var(--h2-letter-spacing);
+    font-weight: var(--h2-font-weight);
+    color: white;
+}
+
+.desc{
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21.68px;
+    color: white;
+}

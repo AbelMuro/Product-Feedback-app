@@ -1,0 +1,59 @@
+@font-face{
+    font-family: 'jost';
+    src: url('./FontFiles/Jost-VariableFont_wght.ttf');
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    margin: 0px;
+    background-color:  #F2F4FF;
+
+}
+
+p, h1, h2, h3, h4{
+    margin: 0px;
+    padding: 0px;
+}
+
+*{
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+}
+
+:root{
+    --font: 'jost';
+
+    --h1-font-size: 24px;
+    --h1-line-height: 35px;
+    --h1-letter-spacing: -0.33px;
+    --h1-font-weight: 700;
+
+    --h2-font-size: 20px;
+    --h2-line-height: 29px;
+    --h2-letter-spacing: -0.25px;
+    --h2-font-weight: 700;
+
+    --h3-font-size: 18px;
+    --h3-line-height: 26px;
+    --h3-letter-spacing: -0.25px;
+    --h3-font-weight: 700;
+
+    --h4-font-size: 14px;
+    --h4-line-height: 20px;
+    --h4-letter-spacing: -0.2px;
+    --h4-font-weight: 700;
+
+    --body-one-font-size: 16px;
+    --body-one-letter-height: 23px;
+    --body-one-font-weight: 400;
+
+    --body-two-font-size:  15px;
+    --body-two-letter-height: 22px;
+    --body-two-font-weight: 400;
+
+    --body-three-font-size: 13px;
+    --body-three-letter-height: 19px;
+    --body-three-font-weight: 600
+}

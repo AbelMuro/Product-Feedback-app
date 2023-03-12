@@ -1,0 +1,76 @@
+.container{
+    width: 255px;
+    height: 178px;
+    padding: 19px 24px 19px 24px;
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+
+}
+
+.title{
+    font-family: var(--font);
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-font-weight);
+    color: #3A4374;
+    margin-bottom: 24px;
+}
+
+.viewLink{
+    color: #4661E6;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: right;
+    margin-bottom: 24px;
+}
+
+.viewLink:hover{
+    color: #8397F8;
+}
+
+
+.status{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.dotOne, .dotTwo, .dotThree{
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+}
+
+.dotOne{
+    background-color: #F49F85;
+}
+
+.dotTwo{
+    background-color: #AD1FEA;
+}
+
+.dotThree{
+    background-color: #62BCFA;
+}
+
+.statusTitle{
+    font-family: var(--font);
+    font-size: var(--body-one-font-size);
+    font-weight: var(--body-one-font-weight);
+    line-height: var(--body-one-line-height);
+    color: #647196;
+}
+
+.currentNumber{
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23.12px;
+    color: #647196;
+    text-align: right;
+}
+
