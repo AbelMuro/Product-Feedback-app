@@ -1,11 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './styles.module.css';
-import arrow from './images/icon-arrow-up.svg';
+import images from './images';
 
 
-/* i will need to create a popup for the select box */
 function SelectBox() {
-    const [filter, setFilter] = useState('Most Upvotes')
+    const [filter, setFilter] = useState('Most Upvotes');
+
+
+    const handleClick = (e) => {
+        const filterOption = e.target.getAttribute('data-sort');
+        setFilter(filterOption);
+    }
+
+    useEffect(() => {
+        const checkMarks = document.querySelectorAll(`.${styles.checkMark}`);           //removing all check marks from the popup
+        checkMarks.forEach((mark) => {
+            if(mark.src != '')
+                mark.src = '';
+        })
+
+        const sortingOptions = document.querySelector(`.${styles.popup}`);              //adding a check mark to the option that the user choose
+        sortingOptions.childNodes.forEach((option) => {
+            if(option.getAttribute('data-sort') == filter)
+                option.childNodes[1].src=images['check']
+            
+        })
+    }, [filter])
 
     return(
         <section className={styles.container}>
@@ -13,7 +33,21 @@ function SelectBox() {
                 Sort by : &nbsp;
             </p>
             <div className={styles.selectBox}>
-                {filter} &nbsp;<img src={arrow} className={styles.arrow}/>
+                {filter} &nbsp;<img src={images['arrow']} className={styles.arrow}/>
+            </div>
+            <div className={styles.popup}>
+                <div className={styles.sortingOption} data-sort='Most Upvotes' onClick={handleClick}>
+                    Most Upvotes <img src={images['check']} className={styles.checkMark}/>
+                </div>
+                <div className={styles.sortingOption} data-sort='Least Upvotes' onClick={handleClick}>
+                    Least Upvotes <img src='' className={styles.checkMark}/>
+                </div>
+                <div className={styles.sortingOption} data-sort='Most Comments' onClick={handleClick}>
+                    Most Comments <img src='' className={styles.checkMark}/>
+                </div>
+                <div className={styles.sortingOption} data-sort='Least Comments' onClick={handleClick}>
+                    Least Comments <img src='' className={styles.checkMark}/>
+                </div>
             </div>
         </section>
         )

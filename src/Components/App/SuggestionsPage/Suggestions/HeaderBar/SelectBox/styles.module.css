@@ -4,7 +4,8 @@
     display: flex;
     align-self: center;
     cursor: pointer;
-    opacity: 1
+    opacity: 1;
+    position: relative;
 }
 .container:hover .title, .container:hover .selectBox{
     opacity: 0.75;
@@ -30,4 +31,48 @@
 .arrow{
     width: 12px;
     object-fit: contain;
+}
+
+
+.popup{
+    position: absolute;
+    top: 60px;
+    width: 255px;
+    height: 192px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
+    background-color: white;
+}
+
+.sortingOption{
+    font-family: var(--font);
+    font-size: var(--body-one-font-size);
+    font-weight: var(--body-one-font-weight);
+    line-height: var(--body-one-line-height);
+    color: #647196;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    position: relative;
+}
+
+.sortingOption:not(.sortingOption:last-child){
+    border-bottom: 1px solid rgba(58, 67, 116, 0.15);
+}
+
+
+.sortingOption:hover{
+    color: #AD1FEA;
+}
+
+.checkMark{
+    width: 11px;
+    object-fit: contain;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    pointer-events: none;
 }

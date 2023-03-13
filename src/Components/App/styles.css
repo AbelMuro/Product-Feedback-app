@@ -8,7 +8,7 @@ body{
     min-height: 100vh;
     justify-content: center;
     margin: 0px;
-    background-color:  #F2F4FF;
+    background-color: #F2F4FF;
 
 }
 
@@ -46,14 +46,14 @@ p, h1, h2, h3, h4{
     --h4-font-weight: 700;
 
     --body-one-font-size: 16px;
-    --body-one-letter-height: 23px;
+    --body-one-line-height: 23px;
     --body-one-font-weight: 400;
 
     --body-two-font-size:  15px;
-    --body-two-letter-height: 22px;
+    --body-two-line-height: 22px;
     --body-two-font-weight: 400;
 
     --body-three-font-size: 13px;
-    --body-three-letter-height: 19px;
+    --body-three-line-height: 19px;
     --body-three-font-weight: 600
 }
