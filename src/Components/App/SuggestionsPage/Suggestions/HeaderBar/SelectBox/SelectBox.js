@@ -12,19 +12,24 @@ function SelectBox() {
         setFilter(filterOption);
     }
 
+//removing all check marks from the popup
     useEffect(() => {
-        const checkMarks = document.querySelectorAll(`.${styles.checkMark}`);           //removing all check marks from the popup
+        const checkMarks = document.querySelectorAll(`.${styles.checkMark}`);           
         checkMarks.forEach((mark) => {
             if(mark.src != '')
                 mark.src = '';
         })
 
-        const sortingOptions = document.querySelector(`.${styles.popup}`);              //adding a check mark to the option that the user choose
+    }, [filter])
+
+//adding a check mark to the option that the user choose
+    useEffect(() => {
+        const sortingOptions = document.querySelector(`.${styles.popup}`);              
         sortingOptions.childNodes.forEach((option) => {
             if(option.getAttribute('data-sort') == filter)
                 option.childNodes[1].src=images['check']
-            
         })
+
     }, [filter])
 
     return(
