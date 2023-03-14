@@ -1,0 +1,44 @@
+.container{
+    width: 40px;
+    height: 53px;
+    border-radius: 10px;
+    background-color:#F2F4FE;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18.79px;
+    letter-spacing: -0.18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.container:hover:not(.upvoted){
+    background-color: #CFD7FF;
+}
+
+.arrow{
+    -webkit-mask-image: url('./images/icon-arrow-up.svg');  
+    -webkit-mask-repeat: no-repeat; 
+    -webkit-mask-position: center;
+    mask-image: url('./images/icon-arrow-up.svg');    
+    mask-repeat: no-repeat;
+    mask-position: center;
+    width: 12px;
+    height: 8px;
+    background-color: #4661E6;
+    pointer-events: none;
+}
+
+.upvoted{
+    background-color: #4661E6;
+    color: white;
+}
+.upvoted .arrow{
+    background-color: white;
+}
+
+

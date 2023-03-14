@@ -1,16 +1,32 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styles from './styles.module.css';
 import images from './images';
 
 
 function SelectBox() {
     const [filter, setFilter] = useState('Most Upvotes');
+    const popupRef = useRef();
+    const arrowRef = useRef();
 
+    const handlePopup = () => {
+        const isDisplayed = popupRef.current.style.display;
+        if(isDisplayed){
+            popupRef.current.style.display = '';
+            arrowRef.current.style.transform = ''
+        }
+            
+        else {
+            popupRef.current.style.display = 'block';
+            arrowRef.current.style.transform = 'rotate(180deg)'
+        }
+            
+    }
 
     const handleClick = (e) => {
         const filterOption = e.target.getAttribute('data-sort');
         setFilter(filterOption);
     }
+
 
 //removing all check marks from the popup
     useEffect(() => {
@@ -32,15 +48,16 @@ function SelectBox() {
 
     }, [filter])
 
+
     return(
-        <section className={styles.container}>
+        <section className={styles.container} onClick={handlePopup}>
             <p className={styles.title}>
                 Sort by : &nbsp;
             </p>
             <div className={styles.selectBox}>
-                {filter} &nbsp;<img src={images['arrow']} className={styles.arrow}/>
+                {filter} &nbsp;<img src={images['arrow']} className={styles.arrow} ref={arrowRef}/>
             </div>
-            <div className={styles.popup}>
+            <div className={styles.popup} ref={popupRef}>
                 <div className={styles.sortingOption} data-sort='Most Upvotes' onClick={handleClick}>
                     Most Upvotes <img src={images['check']} className={styles.checkMark}/>
                 </div>

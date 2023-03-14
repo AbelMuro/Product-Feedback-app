@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+import LogoBox from './LogoBox';
 import Filter from './Filter';
 import RoadMap from './RoadMap';
 import Suggestions from './Suggestions';
@@ -9,7 +9,7 @@ function SuggestionsPage() {
     return(
         <main className={styles.container}>
             <aside className={styles.filterSection}>
-                <Header/>
+                <LogoBox/>
                 <Filter/>
                 <RoadMap/>
             </aside>

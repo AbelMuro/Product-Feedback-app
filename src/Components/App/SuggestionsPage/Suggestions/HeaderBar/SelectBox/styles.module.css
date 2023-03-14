@@ -35,6 +35,7 @@
 
 
 .popup{
+    display: none;
     position: absolute;
     top: 60px;
     width: 255px;

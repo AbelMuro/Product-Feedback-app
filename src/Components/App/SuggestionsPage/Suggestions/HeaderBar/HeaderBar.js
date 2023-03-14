@@ -13,7 +13,11 @@ function HeaderBar() {
                         6 Suggestions
                     </h3>                    
                 </div>
-                <SelectBox/>
+                <SelectBox/>                   
+                <button className={styles.feedbackButton}>
+                    <img src={images['plusSign']} className={styles.plus}/>
+                    &nbsp;Add Feedback
+                </button>
             </section>
         </header>
         )

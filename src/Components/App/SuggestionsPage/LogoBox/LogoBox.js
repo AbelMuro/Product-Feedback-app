@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-function Header() {
+function LogoBox() {
     return(
         <section className={styles.container}>
             <div className={styles.content}>
@@ -16,4 +16,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default LogoBox;
