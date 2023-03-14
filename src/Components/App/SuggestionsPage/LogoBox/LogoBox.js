@@ -8,14 +8,14 @@ import images from './images';
 /* TODO: make the filter and the roadmap component re-usable*/
 function LogoBox() {
     const [showMobileMenu, setShowMobileMenu] = useState(false)
-    const mobileMenuRef = useRef()
-
+    const overlayRef = useRef()
+    const mobileMenuRef = useRef();
 
     const handleClick = () => {
         setShowMobileMenu(!showMobileMenu);
     }
 
-
+/* changing the hamburger icon everytime the user clicks on it */
     useEffect(() => {
         const mobileIcon = document.querySelector('.' + styles.mobileIcon)
 
@@ -29,21 +29,32 @@ function LogoBox() {
         }
     }, [showMobileMenu])
 
+
+/* making the overlay appear everytime the user clicks on the hamburger icon*/
     useEffect(() => {
         if(showMobileMenu){
-            mobileMenuRef.current.style.display = 'block'
+            overlayRef.current.style.display = 'block'
             setTimeout(() => {
-                mobileMenuRef.current.style.opacity = '1';
-            }, 100)
+                overlayRef.current.style.opacity = '1';
+            }, 1)
         }
         else{
-            mobileMenuRef.current.style.opacity = ''; 
+            overlayRef.current.style.opacity = ''; 
             setTimeout(() => {
-                mobileMenuRef.current.style.display = '';
+                overlayRef.current.style.display = '';
             }, 200)
         }
+    }, [showMobileMenu])
 
-            
+
+    useEffect(() => {
+        if(showMobileMenu)
+            setTimeout(() => {
+                mobileMenuRef.current.style.right = '0px';
+            }, 200)
+        else
+            mobileMenuRef.current.style.right = '';
+
     }, [showMobileMenu])
 
     return(
@@ -59,8 +70,8 @@ function LogoBox() {
                 </div>
                 <div className={styles.mobileIcon} onClick={handleClick}></div>
             </section>     
-            <section className={styles.overlay} ref={mobileMenuRef}>
-                <div className={styles.mobileMenu}></div>
+            <section className={styles.overlay} ref={overlayRef}>
+                <div className={styles.mobileMenu} ref={mobileMenuRef}></div>
             </section>   
             
         </>
