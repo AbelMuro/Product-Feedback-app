@@ -90,3 +90,9 @@
         height: 254px;
     }
 }
+
+@media(max-width: 603px){
+    .container{
+        display: none;
+    }
+}

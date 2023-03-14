@@ -47,3 +47,9 @@
         min-height: 178px;
     }
 }
+
+@media(max-width: 603px){
+    .container{
+        display: none;
+    }
+}
