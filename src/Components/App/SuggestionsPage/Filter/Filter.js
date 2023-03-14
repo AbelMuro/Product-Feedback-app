@@ -29,28 +29,31 @@ function Filter() {
     }, [currentFilter]) 
 
     return(
-        <section className={styles.container}>
-            <div className={styles.flex} ref={allFiltersRef}>
-                <div className={[styles.option, styles.optionChoosen].join(" ")} onClick={handleClick} data-filter='All'>
-                    All
+        <div className={styles.flexItem}>                               {/* this div is only here to enable min-height on the container element below*/}
+            <section className={styles.container}>
+                <div className={styles.flex} ref={allFiltersRef}>
+                    <div className={[styles.option, styles.optionChoosen].join(" ")} onClick={handleClick} data-filter='All'>
+                        All
+                    </div>
+                    <div className={styles.option} onClick={handleClick} data-filter='UI'>
+                        UI
+                    </div>
+                    <div className={styles.option} onClick={handleClick} data-filter='UX'>
+                        UX
+                    </div>
+                    <div className={styles.option} onClick={handleClick} data-filter='Enhancement'>
+                        Enhancement
+                    </div>
+                    <div className={styles.option} onClick={handleClick} data-filter='Bug'>
+                        Bug
+                    </div>
+                    <div className={styles.option} onClick={handleClick} data-filter='Feature'>
+                        Feature
+                    </div>
                 </div>
-                <div className={styles.option} onClick={handleClick} data-filter='UI'>
-                    UI
-                </div>
-                <div className={styles.option} onClick={handleClick} data-filter='UX'>
-                    UX
-                </div>
-                <div className={styles.option} onClick={handleClick} data-filter='Enhancement'>
-                    Enhancement
-                </div>
-                <div className={styles.option} onClick={handleClick} data-filter='Bug'>
-                    Bug
-                </div>
-                <div className={styles.option} onClick={handleClick} data-filter='Feature'>
-                    Feature
-                </div>
-            </div>
-        </section>
+            </section>            
+        </div>
+
     )
 }
 

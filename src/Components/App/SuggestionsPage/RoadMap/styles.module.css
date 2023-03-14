@@ -1,5 +1,5 @@
 .container{
-    width: 255px;
+    width: 100%;
     height: 178px;
     padding: 19px 24px 19px 24px;
     background-color: white;
@@ -7,7 +7,6 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     align-items: center;
-
 }
 
 .title{
@@ -74,3 +73,20 @@
     text-align: right;
 }
 
+@media(max-width: 840px){
+    .container{
+        width: 33%;
+    }
+}
+
+@media(max-width: 721px){
+    .container{
+        height: 210px;
+    }
+}
+
+@media(max-width: 647px){
+    .container{
+        height: 254px;
+    }
+}

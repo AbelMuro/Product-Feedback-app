@@ -4,3 +4,9 @@
     gap: 24px;
     width: 825px;
 }
+
+@media(max-width: 1200px){
+    .container{
+        width: 100%;
+    }
+}

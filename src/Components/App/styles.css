@@ -4,12 +4,9 @@
 }
 
 body{
-    display: flex;
     min-height: 100vh;
-    justify-content: center;
     margin: 0px;
     background-color: #F2F4FF;
-
 }
 
 p, h1, h2, h3, h4{
@@ -55,5 +52,8 @@ p, h1, h2, h3, h4{
 
     --body-three-font-size: 13px;
     --body-three-line-height: 19px;
-    --body-three-font-weight: 600
+    --body-three-font-weight: 600;
+
+    --closest: 50;
+    --farthest: 10;
 }

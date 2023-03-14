@@ -1,7 +1,10 @@
 .container{
-    width: 255px;
+    width: 100%;
     height: 137px;
     background-image: url('./images/background-header-desktop.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 10px;
     display: flex;
     align-items: flex-end;
@@ -30,4 +33,72 @@
     font-size: 15px;
     line-height: 21.68px;
     color: white;
+}
+
+.mobileIcon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.mobileIcon:hover{
+    background-color: grey;
+}
+
+@media(max-width: 900px){
+    .container{
+        padding: 0px 0px 24px 10px;
+    }
+}
+
+@media(max-width: 840px){
+    .container{
+        width: 33%;
+        height: 178px;
+        padding: 0px 0px 24px 24px;
+    }
+}
+
+@media(max-width: 721px){
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        height: 210px;
+    }
+}
+
+@media(max-width: 647px){
+    .container{
+        height: 254px;
+    }
+}
+
+@media(max-width: 603px){
+    .container{
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 72px;
+        border-radius: 0px;
+        justify-content: flex-start;
+        padding-left: 24px;
+    }
+
+    .mobileIcon{
+        -webkit-mask-image: url('./images/icon-hamburger.svg');
+        -webkit-mask-repeat: no-repeat;
+        mask-image: url('./images/icon-hamburger.svg');
+        mask-repeat: no-repeat;
+        background-color: white;
+    }
 }

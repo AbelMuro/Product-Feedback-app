@@ -1,6 +1,6 @@
 .container{
-    width: 255px;
-    height: 166px;
+    width: 100%;
+    min-height: 166px;
     padding: 24px;
     background-color: white;
     border-radius: 10px;
@@ -27,7 +27,6 @@
     font-weight: 600;
     font-size: 13px;
     line-height: 18.79px;
-
     color: #4661E6;
 }
 
@@ -38,4 +37,13 @@
 .optionChoosen{
     background-color: #4661E6;
     color: white;
+}
+
+@media(max-width: 840px){
+    .flexItem{
+        width: 33%;
+    }
+    .container{
+        min-height: 178px;
+    }
 }
