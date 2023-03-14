@@ -33,10 +33,10 @@ function LogoBox() {
 /* making the overlay appear everytime the user clicks on the hamburger icon*/
     useEffect(() => {
         if(showMobileMenu){
-            overlayRef.current.style.display = 'block'
-            setTimeout(() => {
+            overlayRef.current.style.display = 'block';
+            setTimeout(() => {                              //if i dont make the following line of code asynchronous, then the transition animation will be skipped
                 overlayRef.current.style.opacity = '1';
-            }, 1)
+            }, 0)
         }
         else{
             overlayRef.current.style.opacity = ''; 
