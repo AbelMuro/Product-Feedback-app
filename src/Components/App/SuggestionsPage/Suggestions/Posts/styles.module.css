@@ -96,3 +96,42 @@
         gap: 20px;
     }
 }
+
+@media(max-width: 603px){
+    .container{
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 180px;
+        gap: 16px;
+    }
+    .post{
+        width: 90%;
+        margin: auto;
+        flex-direction: column-reverse;
+        padding-right: 24px;
+    }
+
+    .commentContainer{
+        bottom: -131px;
+    }
+
+    .title{
+        font-size: 13px;
+        letter-spacing: -0.18px;
+        line-height: 18.79px;
+    }
+
+    .desc{
+        font-size: 13px;
+        line-height: 18.79px;
+        
+    }
+}
+
+@media(max-width: 516px){
+    .commentContainer{
+        bottom: -151px;
+    }
+}

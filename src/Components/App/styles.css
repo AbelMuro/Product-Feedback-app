@@ -9,9 +9,10 @@ body, html{
     background-color: #F2F4FF;
 }
 
-p, h1, h2, h3, h4{
+p, h1, h2, h3, h4, fieldset{
     margin: 0px;
     padding: 0px;
+    border: none;
 }
 
 *{
@@ -46,7 +47,7 @@ p, h1, h2, h3, h4{
     --body-one-line-height: 23px;
     --body-one-font-weight: 400;
 
-    --body-two-font-size:  15px;
+    --body-two-font-size: 15px;
     --body-two-line-height: 22px;
     --body-two-font-weight: 400;
 

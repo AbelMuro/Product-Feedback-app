@@ -85,6 +85,7 @@
         width: 33%;
         height: 178px;
         padding: 0px 0px 24px 24px;
+        background-image: url('./images/background-header-tablet.png')
     }
 }
 
@@ -116,7 +117,22 @@
         border-radius: 0px;
         justify-content: flex-start;
         padding-left: 24px;
+        background-image: url('./images/background-header-mobile.png')
     }
+    .title{
+        font-size: 15px;
+        line-height: 21.68px;
+        letter-spacing: -0.19px;
+    }
+    .desc{
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+    .content{
+        width: 115px;
+        height: 41px;
+    }
+
 
     .mobileIcon{
         -webkit-mask-image: url('./images/icon-hamburger.svg');

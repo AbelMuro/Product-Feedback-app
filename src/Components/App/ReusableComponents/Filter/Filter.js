@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useEffect} from 'react';
 import styles from './styles.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,26 +12,29 @@ function Filter() {
         dispatch({type: 'set filter', filter: filterOption});
     }
 
-    const allFiltersRef = useCallback((ref) => {
-            if(!ref)
-                return;
-            else{
-                ref.childNodes.forEach((node) => {
-                    const filter = node.getAttribute('data-filter');
-                    if(filter == currentFilter){
-                        const lastOptionChoosen = document.querySelector('.' + styles.optionChoosen);
-                        lastOptionChoosen.classList.remove(styles.optionChoosen)
-                        node.classList.add(styles.optionChoosen)
-                    }
-                        
-                })
-            }
-    }, [currentFilter]) 
+    useEffect(() => {
+        const allFilterOptions = document.querySelectorAll('.' + styles.option);
+        allFilterOptions.forEach((option) => {
+            const hasOptionChoosenClass = option.classList.contains(styles.optionChoosen);
+            if(hasOptionChoosenClass)
+                option.classList.remove(styles.optionChoosen);
+        })
+
+    }, [currentFilter])
+
+    useEffect(() => {
+        const allFilterOptions = document.querySelectorAll('.' + styles.option);
+        allFilterOptions.forEach((option) => {
+            const filter = option.getAttribute('data-filter')
+            if(filter == currentFilter)
+                option.classList.add(styles.optionChoosen);
+        })
+    }, [currentFilter])
 
     return(
         <div className={styles.flexItem}>                               {/* this div is only here to enable min-height on the container element below*/}
             <section className={styles.container}>
-                <div className={styles.flex} ref={allFiltersRef}>
+                <div className={styles.flex}>
                     <div className={[styles.option, styles.optionChoosen].join(" ")} onClick={handleClick} data-filter='All'>
                         All
                     </div>

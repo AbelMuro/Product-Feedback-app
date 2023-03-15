@@ -41,4 +41,11 @@
     background-color: white;
 }
 
-
+@media(max-width: 603px){
+    .container{
+        flex-direction: row;
+        min-width: 55px;
+        height: 32px;
+        gap: 10px
+    }
+}

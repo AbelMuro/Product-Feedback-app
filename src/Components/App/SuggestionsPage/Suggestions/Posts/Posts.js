@@ -6,7 +6,7 @@ import images from './images';
 function Posts() {
     return(
         <section className={styles.container}>
-            <div>                                       {/* this is only here to enable min-height on a flex item*/}
+                                                
                 <div className={styles.post}>
                     <Upvotes/>
                     <div className={styles.postInfo}>
@@ -25,9 +25,27 @@ function Posts() {
                         </div>
                         
                     </div>
-
-                </div>                
-            </div>
+                </div>   
+                <div className={styles.post}>
+                    <Upvotes/>
+                    <div className={styles.postInfo}>
+                        <h3 className={styles.title}>
+                            Add tags for solution
+                        </h3>
+                        <p className={styles.desc}>
+                           wjd nljnwuj ljnw jknwad nweud nlanw lkjwndljn lajwn ljanw lkjdnalwjdn 
+                        </p>
+                        <div className={styles.category}>
+                            Enhancement
+                        </div>
+                        <div className={styles.commentContainer}>
+                            <img src={images['commentBubble']} className={styles.commentIcon}/>
+                            2
+                        </div>
+                        
+                    </div>
+                </div>               
+           
 
 
         </section>

@@ -5,6 +5,7 @@
     padding: 23px 16px 23px 24px;
     border-radius: 10px;
     position: relative;
+    top: 0px;
 }
 
 .content{
@@ -83,5 +84,26 @@
     }
     .content{
         gap: 20px;
+    }
+}
+
+@media(max-width: 603px){
+    .container{
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 0px;
+    }
+
+    .feedbackButton{
+        font-size: 13px;
+        line-height: 18.79px;
+        width: 134px;
+        height: 40px;
+    }
+    .content{
+        gap: 0px
     }
 }

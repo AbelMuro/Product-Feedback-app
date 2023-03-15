@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
+import Filter from './../../ReusableComponents/Filter';
+import RoadMap from './../../ReusableComponents/RoadMap';
 import styles from './styles.module.css';
 import images from './images';
 
 
 /* keep in mind that this component will turn into a mobile menu bar*/
-
-/* TODO: make the filter and the roadmap component re-usable*/
 function LogoBox() {
     const [showMobileMenu, setShowMobileMenu] = useState(false)
     const overlayRef = useRef()
@@ -41,12 +41,12 @@ function LogoBox() {
         else{
             overlayRef.current.style.opacity = ''; 
             setTimeout(() => {
-                overlayRef.current.style.display = '';
+                overlayRef.current.style.display = '';      //i will need to wait at least 200 milliseconds for the transition animation to finish
             }, 200)
         }
     }, [showMobileMenu])
 
-
+    /* moving the mobile menu from offscreen to onscreen with the 'right' css property*/
     useEffect(() => {
         if(showMobileMenu)
             setTimeout(() => {
@@ -54,6 +54,22 @@ function LogoBox() {
             }, 200)
         else
             mobileMenuRef.current.style.right = '';
+
+    }, [showMobileMenu])
+
+    /* this will prevent the user from scrolling while the mobile menu is open*/
+    useEffect(() => {
+        const handleScrolling = () => {
+            window.scrollTo(0,0);
+        }
+        if(showMobileMenu)
+            window.addEventListener('scroll', handleScrolling);
+        else
+            window.removeEventListener('scroll', handleScrolling);
+
+        return () => {
+            window.removeEventListener('scroll', handleScrolling);
+        }
 
     }, [showMobileMenu])
 
@@ -71,7 +87,10 @@ function LogoBox() {
                 <div className={styles.mobileIcon} onClick={handleClick}></div>
             </section>     
             <section className={styles.overlay} ref={overlayRef}>
-                <div className={styles.mobileMenu} ref={mobileMenuRef}></div>
+                <div className={styles.mobileMenu} ref={mobileMenuRef}>
+                    <Filter/>
+                    <RoadMap/>
+                </div>
             </section>   
             
         </>

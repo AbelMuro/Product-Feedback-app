@@ -78,3 +78,15 @@
     margin: auto;
     pointer-events: none;
 }
+
+@media(max-width: 603px){
+    .title, .selectBox{
+        font-size: 13px;
+        line-height: 19px; 
+    }
+
+    .sortingOption{
+        font-size: 15px;
+        line-height: 16px;
+    }
+}

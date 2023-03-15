@@ -93,6 +93,8 @@
 
 @media(max-width: 603px){
     .container{
-        display: none;
+        width: 223px;
+        height: 178px;
+        margin: auto;
     }
 }
