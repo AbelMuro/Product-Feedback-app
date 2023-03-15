@@ -17,6 +17,7 @@ function CategoryInput() {
         setCategory(choosenCategory);
     }
 
+    /* displaying the popup and rotating the arrow in the 'input' box*/
     useEffect(() => {
         if(openPopup){
             popupRef.current.style.display = 'block';
@@ -27,6 +28,23 @@ function CategoryInput() {
             arrowRef.current.style.transform = '';
         }
     }, [openPopup])
+
+
+    /* adding a checkmark next to the option that the user choose*/
+    useEffect(() => {
+        const allOptions = document.querySelectorAll('.' + styles.option);
+
+        allOptions.forEach((option) => {                                        //removing all checkmarks
+            const checkMark = option.childNodes[1].src;
+            if(checkMark)
+                option.childNodes[1].src = ''
+        }, [category])
+
+        allOptions.forEach((option) => {                                        //adding a checkmark next to the option that the user choose
+            if(option.getAttribute('data-category') == category)
+                option.childNodes[1].src = images['checkMark']
+        })
+    }, [category])
 
     return(
         <fieldset className={styles.container}>
@@ -40,19 +58,19 @@ function CategoryInput() {
                 {category} <img src={images['arrowDown']} className={styles.arrow} alt='arrow down' ref={arrowRef}/>
                 <div className={styles.popup} ref={popupRef}>
                     <p className={styles.option} onClick={handleOption} data-category='Feature'>
-                        Feature
+                        Feature <img className={styles.checkMark}/>
                     </p>
                     <p className={styles.option} onClick={handleOption} data-category='UI'>
-                        UI
+                        UI <img className={styles.checkMark}/>
                     </p>
                     <p className={styles.option} onClick={handleOption} data-category='UX'>
-                        UX
+                        UX <img className={styles.checkMark}/>
                     </p>
                     <p className={styles.option} onClick={handleOption} data-category='Enhancement'>
-                        Enhancement
+                        Enhancement <img className={styles.checkMark}/>
                     </p>
                     <p className={styles.option} onClick={handleOption} data-category='Bug'>
-                        Bug
+                        Bug <img className={styles.checkMark}/>
                     </p>
                 </div>
             </div>

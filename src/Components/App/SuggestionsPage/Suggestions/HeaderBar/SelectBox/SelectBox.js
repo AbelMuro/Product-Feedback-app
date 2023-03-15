@@ -43,7 +43,7 @@ function SelectBox() {
         const sortingOptions = document.querySelector(`.${styles.popup}`);              
         sortingOptions.childNodes.forEach((option) => {
             if(option.getAttribute('data-sort') == filter)
-                option.childNodes[1].src=images['check']
+                option.childNodes[1].src = images['check']
         })
 
     }, [filter])

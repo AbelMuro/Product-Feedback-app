@@ -1,6 +1,7 @@
 import React from 'react';
 import TitleInput from './TitleInput'
-import CategoryInput from './CategoryInput'
+import CategoryInput from './CategoryInput';
+import FeedbackInput from './FeedbackInput';
 import styles from './styles.module.css';
 import images from './images'
 
@@ -17,6 +18,7 @@ function CreateFeedbackPage(){
                     </h1>
                     <TitleInput/>
                     <CategoryInput/>
+                    <FeedbackInput/>
                 </form>
             </main>
         )

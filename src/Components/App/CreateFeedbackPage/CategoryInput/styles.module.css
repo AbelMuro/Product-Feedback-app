@@ -66,6 +66,7 @@
     height: 47px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .option:not(.option:last-child){
@@ -74,4 +75,12 @@
 
 .option:hover{
     color: #AD1FEA;
+}
+
+.checkMark{
+    position: absolute;
+    right: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
