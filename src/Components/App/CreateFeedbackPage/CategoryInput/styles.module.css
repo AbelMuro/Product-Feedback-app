@@ -1,3 +1,9 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .selectBox{
    background-color: #F7F8FD;
    border-radius: 5px;
@@ -18,6 +24,24 @@
 .arrow{
     width: 10px;
     object-fit: contain;
+}
+
+.title{
+    font-family: var(--font);
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-font-weight);
+    line-height: var(--h4-line-height);
+    letter-spacing: var(--h4-letter-spacing);
+    color: #3A4374;
+}
+
+.desc{
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.23px;
+    color: #647196;
+    margin-bottom: 14px;
 }
 
 .popup{

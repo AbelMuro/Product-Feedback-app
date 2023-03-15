@@ -29,12 +29,12 @@ function CategoryInput() {
     }, [openPopup])
 
     return(
-        <fieldset>
+        <fieldset className={styles.container}>
             <h4 className={styles.title}>
                 Category
             </h4>
             <p className={styles.desc}>
-                Choose a category for your feebback
+                Choose a category for your feedback
             </p>
             <div className={styles.selectBox} onClick={handlePopup}>
                 {category} <img src={images['arrowDown']} className={styles.arrow} alt='arrow down' ref={arrowRef}/>
