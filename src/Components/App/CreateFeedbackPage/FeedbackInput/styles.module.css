@@ -1,19 +1,17 @@
 .container{
-    margin: 0px;
-    padding: 0px;
-    border: none;
     display: flex;
     flex-direction: column;
     gap: 2px;
     position: relative;
+    z-index: var(--farthest);
+    margin-bottom: 20px;
 }
 
 .title{
     font-family: var(--font);
     font-size: var(--h4-font-size);
-    line-height: var(--h4-line-height);
     font-weight: var(--h4-font-weight);
-    letter-spacing: var(--h4-letter-spacing);
+    line-height: var(--h4-line-height);
     color: #3A4374;
 }
 
@@ -26,40 +24,42 @@
     margin-bottom: 14px;
 }
 
-.input{
-    height: 48px;
-    border: 0px solid #4661E6;
-    background-color: #f7f8fd;
+.textarea{
+    height: 96px;
+    resize: none;
+    border: none;
+    background-color: #F7F8FD;
     border-radius: 5px;
-    transition: none;
-    padding-left: 24px;
+    padding: 13px 24px;
     font-family: var(--font);
     font-size: var(--body-two-font-size);
     font-weight: var(--body-two-font-weight);
     line-height: var(--body-two-line-height);
     color: #3A4374;
+    transition: none;
 }
 
-.input:hover{
+.textarea:hover{
     border: 1px solid #4661E6;
 }
 
-.input:focus{
-    outline: none;
+.textarea:focus{
     border: 2px solid #4661E6;
+    outline: none;
 }
-
 
 .errorMessage{
     display: none;
     position: absolute;
     bottom: -20px;
-    color:  #D73737;
+    left: 0px;
     font-family: var(--font);
     font-size: 14px;
-    font-weight: 400;
     line-height: 20.23px;
+    font-weight: 400;
+    color: #D73737;
 }
+
 
 @media(max-width: 603px){
     .title{

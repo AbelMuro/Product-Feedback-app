@@ -1,8 +1,8 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect, forwardRef, useImperativeHandle} from 'react'
 import images from './images';
 import styles from './styles.module.css';
 
-function CategoryInput() {
+const CategoryInput = forwardRef((props, ref) => {
     const [category, setCategory] = useState('Feature');
     const [openPopup, setOpenPopup] = useState(false);
     const popupRef = useRef();
@@ -16,6 +16,12 @@ function CategoryInput() {
         const choosenCategory = e.target.getAttribute('data-category');
         setCategory(choosenCategory);
     }
+
+    useImperativeHandle(ref, () => ({
+        get state() {
+            return category;
+        }
+    }))
 
     /* displaying the popup and rotating the arrow in the 'input' box*/
     useEffect(() => {
@@ -77,6 +83,6 @@ function CategoryInput() {
 
         </fieldset>
     )
-}
+})
 
 export default CategoryInput;

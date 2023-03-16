@@ -6,5 +6,5 @@ export function FilterReducer(state = 'All', action){
             return state;
        default: 
             return state;
-}
+     }
 }

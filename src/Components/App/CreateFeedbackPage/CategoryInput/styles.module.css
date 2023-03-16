@@ -21,6 +21,11 @@
    cursor: pointer;
 }
 
+.selectBox:hover{
+    transition: none;
+    border: 1px solid #4661E6;
+}
+
 .arrow{
     width: 10px;
     object-fit: contain;
@@ -47,6 +52,7 @@
 .popup{
     display: none;
     position: absolute;
+    z-index: var(--closer);
     top: 60px;
     left: 0px;
     width: 456px;
@@ -83,4 +89,16 @@
     top: 0;
     bottom: 0;
     margin: auto;
+}
+
+
+@media(max-width: 603px){
+    .title{
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+    .desc{
+        font-size: 13px;
+        line-height: 18.79px
+    }
 }

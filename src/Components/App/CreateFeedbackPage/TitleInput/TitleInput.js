@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, forwardRef, useImperativeHandle, useEffect} from 'react';
 import styles from './styles.module.css';
 
-function TitleInput() {
+const TitleInput = forwardRef((props, ref) => {
     const [text, setText] = useState('');
     const errorMessageRef = useRef();
     const inputRef = useRef();
@@ -9,11 +9,6 @@ function TitleInput() {
     const handleChange = (e) => {
         if(text.length <= 25)
             setText(e.target.value)
-    }
-
-    const handleFocus = () => {
-        errorMessageRef.current.style.display = '';
-        inputRef.current.style.border = '';
     }
 
     const handleBlur = (e) => {
@@ -29,6 +24,24 @@ function TitleInput() {
         }
     }
 
+    const handleInvalid = () => {
+        inputRef.current.setCustomValidity(' ');
+        errorMessageRef.current.style.display = 'block';   
+        inputRef.current.style.border = '1px solid #D73737';
+    }
+
+    useImperativeHandle(ref, () => ({
+        get state(){
+            return text;
+        }
+    }))
+
+    useEffect(() => {
+        inputRef.current.setCustomValidity('');
+        errorMessageRef.current.style.display = '';
+        inputRef.current.style.border = '';
+    }, [text])
+
     return(
         <fieldset className={styles.container}>
             <h4 className={styles.title}>
@@ -41,7 +54,7 @@ function TitleInput() {
                 type='text'
                 value={text} 
                 onChange={handleChange} 
-                onFocus={handleFocus}
+                onInvalid={handleInvalid}
                 onBlur={handleBlur}
                 className={styles.input} 
                 ref={inputRef}
@@ -51,6 +64,6 @@ function TitleInput() {
             </div>
         </fieldset>
     )
-}
+})
 
 export default TitleInput;

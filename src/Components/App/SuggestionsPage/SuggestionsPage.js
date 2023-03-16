@@ -6,7 +6,7 @@ import useMediaQuery from '../ReusableComponents/useMediaQuery';
 import Suggestions from './Suggestions';
 import styles from './styles.module.css';
 
-function SuggestionsPage() {
+function SuggestionsPage({db}) {
     const mobile = useMediaQuery('(max-width: 603px)')
 
     return(
@@ -16,7 +16,7 @@ function SuggestionsPage() {
                 {mobile ? <></> : <Filter/>}
                 {mobile ? <></> : <RoadMap/>}
             </aside>
-            <Suggestions/> 
+            <Suggestions db={db}/> 
         </main>
     )
 }

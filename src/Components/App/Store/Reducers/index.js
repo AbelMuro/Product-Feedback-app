@@ -1,9 +1,8 @@
 import {FilterReducer} from './Reducers.js';
 import { combineReducers } from 'redux';
 
-
 const RootReducer = combineReducers({
-    filter: FilterReducer
+    filter: FilterReducer,
 })
 
 export default RootReducer;

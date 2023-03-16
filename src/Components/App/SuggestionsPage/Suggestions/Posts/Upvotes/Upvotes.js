@@ -1,9 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import styles from './styles.module.css';
 
-function Upvotes(){
-    const [upvotes, setUpvotes] = useState(0);
-    const alreadyUpvoted = useRef(false);
+function Upvotes({upvote}){
+    const [upvotes, setUpvotes] = useState(upvote);
     const containerRef = useRef();
 
     const handleClick = (e) => {
