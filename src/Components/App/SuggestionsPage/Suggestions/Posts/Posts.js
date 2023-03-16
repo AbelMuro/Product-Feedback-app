@@ -3,13 +3,18 @@ import Upvotes from './Upvotes';
 import styles from './styles.module.css';
 import images from './images';
 import {collection} from 'firebase/firestore';
-import {useCollectionData} from 'react-firebase-hooks/firestore';        
+import {useCollectionData} from 'react-firebase-hooks/firestore';       
+import {useNavigate} from 'react-router-dom'; 
 
 
-/* i will need to style the no feedback component, then i will make the comment section component later*/
 function Posts({db}) {
    const postsCollectionRef = collection(db, 'posts');
    const [posts, loading, error] = useCollectionData(postsCollectionRef);
+   const navigate = useNavigate();
+
+   const handleClick = () => {
+        navigate('/feedback');
+   }
 
 
    useEffect(() => {
@@ -22,7 +27,6 @@ function Posts({db}) {
             {loading ? <>loading</> : 
                 posts.length ? 
                     posts.map((post) => {
-                        console.log(posts.length)
                         return(                
                             <div className={styles.post} id={post.id} key={post.id}>
                                 <Upvotes upvote={post.upvotes}/>
@@ -46,7 +50,17 @@ function Posts({db}) {
                         )
                     }) : 
                     <section className={styles.noFeedback}>
-
+                        <img src={images['guyWithMagnifyingglass']} className={styles.noFeedbackImage}/>
+                        <h1 className={styles.noFeedbackTitle}>
+                            There is no feedback yet.
+                        </h1>
+                        <p className={styles.noFeedbackDesc}>
+                            Got a suggestion? Found a bug that needs to be squashed? 
+                            We love hearing about new ideas to improve our app.
+                        </p>
+                        <button className={styles.button} onClick={handleClick}>
+                            + Add Feedback
+                        </button>
                     </section>
 
             }                    

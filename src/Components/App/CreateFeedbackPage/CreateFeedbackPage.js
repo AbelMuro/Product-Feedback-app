@@ -8,7 +8,7 @@ import {collection, addDoc, setDoc, doc} from 'firebase/firestore'
 import {v4 as uuid} from 'uuid'
 import images from './images'
 
-/* i will need to convert one of the buttons below into input type='submit'*/
+
 function CreateFeedbackPage({db}){
     const category = useRef();
     const title = useRef();
@@ -20,10 +20,9 @@ function CreateFeedbackPage({db}){
         const categoryChoosen = category.current.state;
         const titleChoosen = title.current.state;
         const feedbackChoosen = feedback.current.state;
-
         try{
             const postsCollection = collection(db, 'posts');
-            const docRef = await addDoc(postsCollection, {
+            await addDoc(postsCollection, {
                 id: uuid(),
                 title: titleChoosen,
                 category: categoryChoosen,
@@ -45,7 +44,7 @@ function CreateFeedbackPage({db}){
 
     return(
             <main className={styles.container}>
-                <a className={styles.goBackLink}>
+                <a className={styles.goBackLink} onClick={handleClick}>
                     <img src={images['leftArrow']} className={styles.arrowLeft}/>Go Back
                 </a>
                 <form className={styles.form} onSubmit={handleSubmit}>

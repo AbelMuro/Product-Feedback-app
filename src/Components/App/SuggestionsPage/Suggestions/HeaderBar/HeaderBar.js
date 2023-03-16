@@ -27,8 +27,7 @@ function HeaderBar() {
                 </div>
                 <SelectBox/>                   
                 <button className={styles.feedbackButton} onClick={handleClick}>
-                    <img src={images['plusSign']} className={styles.plus}/>
-                    &nbsp;Add Feedback
+                    + Add Feedback
                 </button>
             </section>
         </header>
