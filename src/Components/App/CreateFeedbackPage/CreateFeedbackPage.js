@@ -4,7 +4,7 @@ import CategoryInput from './CategoryInput';
 import FeedbackInput from './FeedbackInput';
 import styles from './styles.module.css';
 import {useNavigate} from 'react-router-dom';
-import {collection, addDoc, setDoc, doc} from 'firebase/firestore'
+import {collection, addDoc} from 'firebase/firestore'
 import {v4 as uuid} from 'uuid'
 import images from './images'
 

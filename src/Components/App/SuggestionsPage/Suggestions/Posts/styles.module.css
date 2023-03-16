@@ -15,12 +15,14 @@
     display: flex;
     gap: 40px;
     position: relative;
+    cursor: pointer;
 }
 
 .postInfo{
     display: flex;
     flex-direction: column;
     gap: 4px;
+    pointer-events: none;
 }
 
 

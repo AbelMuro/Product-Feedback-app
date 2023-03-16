@@ -16,6 +16,10 @@ function Posts({db}) {
         navigate('/feedback');
    }
 
+   const handlePost = () => {
+        navigate('/post')
+   }
+
 
    useEffect(() => {
         console.log(posts);
@@ -28,7 +32,7 @@ function Posts({db}) {
                 posts.length ? 
                     posts.map((post) => {
                         return(                
-                            <div className={styles.post} id={post.id} key={post.id}>
+                            <div className={styles.post} id={post.id} key={post.id} onClick={handlePost}>
                                 <Upvotes upvote={post.upvotes}/>
                                 <div className={styles.postInfo}>
                                     <h3 className={styles.title}>
