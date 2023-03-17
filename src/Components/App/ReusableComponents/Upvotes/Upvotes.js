@@ -7,7 +7,6 @@ function Upvotes({upvote}){
 
     const handleClick = (e) => {
         containerRef.current.classList.add(styles.upvoted);
-        e.target.style.pointerEvents = 'none';
         setUpvotes(upvotes + 1);
     }   
 
@@ -17,7 +16,7 @@ function Upvotes({upvote}){
 
 
     return(
-        <section className={styles.container} onClick={handleClick} ref={containerRef}>
+        <section id='upvotes' className={styles.container} onClick={handleClick} ref={containerRef}>
             <div className={styles.arrow}></div>
             {upvotes}
         </section>

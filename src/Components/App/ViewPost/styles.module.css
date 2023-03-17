@@ -1,0 +1,123 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 80px auto 0px auto;
+    width: 730px;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goBackLink{
+    display: flex;
+    align-items: center;
+    gap: 15.67px;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20.23px;
+    color: #647196;
+    cursor: pointer;
+}
+
+.goBackLink:hover{
+    text-decoration-line: underline;
+}
+
+.editButton{
+    width: 142px;
+    height: 44px;
+    background-color: #4661E6;
+    color: white;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20.23px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.editButton:hover{
+    background-color: #7C91F9;
+}
+
+
+.post{
+    width: 100%;
+    min-height: 151px;
+    background-color: white;
+    padding: 28px 72px 28px 32px;
+    border-radius: 10px;
+    display: flex;
+    gap: 40px;
+    position: relative;
+}
+
+.postInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.category{
+    padding: 0px 16px;
+    margin-top: 8px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #F2F4FF;
+    font-family: var(--font);
+    font-size: var(--body-three-font-size);
+    font-weight: var(--body-three-font-weight);
+    line-height: var(--body-three-line-height);
+    color:#4661E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.title{
+    font-family: var(--font);
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-font-weight);
+    line-height: var(--h3-line-height);
+    color: #3A4374;
+}
+
+.desc{
+    font-family: var(--font);
+    font-size: var(--body-one-font-size);
+    font-weight: var(--body-one-font-weight);
+    line-height: var(--body-one-line-height);
+    color: #647196;
+}
+
+.commentContainer{
+    width: 40px;
+    height: 23px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.22px;
+    line-height: 23.12px;
+    position: absolute;
+    right: 32px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #3A4374;
+}
+
+.commentIcon{
+    width: 18px;
+    object-fit: contain;
+}

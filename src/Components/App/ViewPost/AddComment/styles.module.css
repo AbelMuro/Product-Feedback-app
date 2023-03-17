@@ -1,0 +1,87 @@
+.container{
+    width: 730px;
+    height: 243px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 34px;
+    position: relative;
+}
+
+.title{
+    font-family: var(--font);
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-font-weight);
+    line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-letter-spacing);
+    margin-bottom: 8px;
+}
+
+.textArea{
+    height: 80px;
+    transition: none;
+    resize: none;
+    border-radius: 5px;
+    border: none;
+    background-color: #F7F8FD;
+    padding: 16px 24px;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21.68px;
+    color: #3A4374;
+}
+
+.textArea:hover{
+    border: 1px solid #4661E6;
+}
+
+.textArea:focus{
+    outline: none;
+    border: 2px solid #4661E6;
+}
+
+.errorMessage{
+    display: none;
+    position: absolute;
+    bottom: 65px;
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 20.23px;
+    font-weight: 400;
+    color: #D73737;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.charactersLeft{
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21.68px;
+    color: #647196;
+}
+.button{
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20.23px;
+    border: none;
+    background-color: #AD1FEA;
+    color: white;
+    border-radius: 10px;
+    width: 142px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #C75AF6;
+}
+

@@ -4,7 +4,7 @@ import CategoryInput from './CategoryInput';
 import FeedbackInput from './FeedbackInput';
 import styles from './styles.module.css';
 import {useNavigate} from 'react-router-dom';
-import {collection, addDoc} from 'firebase/firestore'
+import {doc, setDoc} from 'firebase/firestore'
 import {v4 as uuid} from 'uuid'
 import images from './images'
 
@@ -21,10 +21,11 @@ function CreateFeedbackPage({db}){
         const titleChoosen = title.current.state;
         const feedbackChoosen = feedback.current.state;
         try{
-            const postsCollection = collection(db, 'posts');
-            await addDoc(postsCollection, {
-                id: uuid(),
+            const postID = uuid();
+            const postDoc = doc(db, 'posts', postID);
+            await setDoc(postDoc, {
                 title: titleChoosen,
+                id: postID,
                 category: categoryChoosen,
                 feedback: feedbackChoosen,
                 comments: 0,

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import Upvotes from './Upvotes';
+import Upvotes from './../../../ReusableComponents/Upvotes';
 import styles from './styles.module.css';
 import images from './images';
 import {collection} from 'firebase/firestore';
@@ -9,32 +9,33 @@ import {useNavigate} from 'react-router-dom';
 
 function Posts({db}) {
    const postsCollectionRef = collection(db, 'posts');
-   const [posts, loading, error] = useCollectionData(postsCollectionRef);
+   const [posts, loading] = useCollectionData(postsCollectionRef);
    const navigate = useNavigate();
 
    const handleClick = () => {
         navigate('/feedback');
    }
 
-   const handlePost = () => {
-        navigate('/post')
+   const handlePost = (e) => {  
+    if(!e.target.matches('#upvotes')){           //the user will navigate to the /:post route as long as they dont click on the upvotes
+        const postID = e.target.getAttribute('id');
+        navigate('/post', {state: postID});
+    }
    }
 
 
    useEffect(() => {
-        console.log(posts);
    }, [posts])
 
     return(
         <section className={styles.container}>
-
             {loading ? <>loading</> : 
                 posts.length ? 
                     posts.map((post) => {
                         return(                
                             <div className={styles.post} id={post.id} key={post.id} onClick={handlePost}>
-                                <Upvotes upvote={post.upvotes}/>
-                                <div className={styles.postInfo}>
+                                <Upvotes upvote={post.upvotes}/>                                         
+                                <div className={styles.postInfo} >
                                     <h3 className={styles.title}>
                                         {post.title}
                                     </h3>
@@ -66,11 +67,7 @@ function Posts({db}) {
                             + Add Feedback
                         </button>
                     </section>
-
             }                    
-           
-
-
         </section>
         )
 }

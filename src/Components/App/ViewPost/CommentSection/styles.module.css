@@ -1,0 +1,37 @@
+.container{
+    width: 730px;
+    gap: 28px;
+    padding: 24px 34px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.commentContainer{
+    width: 666px;
+    display: grid;
+    grid-template-columns: 40px 5fr 1fr;
+    row-gap: 17px;
+    column-gap: 32px;
+}
+
+
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.userImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+
+.comment{
+    grid-column: 2/4;
+}

@@ -18,7 +18,7 @@ function App() {
                     <Routes>    
                         <Route path='/' element={<SuggestionsPage db={db}/>}/>
                         <Route path='/feedback' element={<CreateFeedbackPage db={db}/>}/>
-                        <Route path='/:post' element={<ViewPost/>} />
+                        <Route path='/:post' element={<ViewPost db={db}/>}/>
                     </Routes>
             </BrowserRouter>            
         </Provider>

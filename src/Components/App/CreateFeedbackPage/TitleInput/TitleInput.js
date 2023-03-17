@@ -7,8 +7,7 @@ const TitleInput = forwardRef((props, ref) => {
     const inputRef = useRef();
 
     const handleChange = (e) => {
-        if(text.length <= 25)
-            setText(e.target.value)
+        setText(e.target.value)
     }
 
     const handleBlur = (e) => {
