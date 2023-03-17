@@ -9,29 +9,14 @@
     justify-content: space-between;
 }
 
-.commentContainer{
-    width: 666px;
-    display: grid;
-    grid-template-columns: 40px 5fr 1fr;
-    row-gap: 17px;
-    column-gap: 32px;
+.totalComments{
+    font-family: var(--font);
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-font-weight);
+    line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-letter-spacing);
+    color: #3A4374;
 }
 
 
-.userInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 40px;
-}
 
-.userImage{
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-}
-
-
-.comment{
-    grid-column: 2/4;
-}

@@ -10,6 +10,7 @@ import {useNavigate} from 'react-router-dom';
 function Posts({db}) {
    const postsCollectionRef = collection(db, 'posts');
    const [posts, loading] = useCollectionData(postsCollectionRef);
+
    const navigate = useNavigate();
 
    const handleClick = () => {
@@ -17,12 +18,11 @@ function Posts({db}) {
    }
 
    const handlePost = (e) => {  
-    if(!e.target.matches('#upvotes')){           //the user will navigate to the /:post route as long as they dont click on the upvotes
-        const postID = e.target.getAttribute('id');
-        navigate('/post', {state: postID});
-    }
+        if(!e.target.matches('#upvotes')){           //the user will navigate to the /:post route as long as they dont click on the upvotes component
+            const postID = e.target.getAttribute('id');
+            navigate('/post', {state: postID});
+        }
    }
-
 
    useEffect(() => {
    }, [posts])

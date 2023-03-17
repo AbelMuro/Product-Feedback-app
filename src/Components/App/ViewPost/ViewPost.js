@@ -12,7 +12,7 @@ import icons from './Icons';
 function ViewPost({db}) {
     const {state} = useLocation();
     const documentRef = doc(db, 'posts', state);                                  // collection() returns a reference to a collection
-    const [post, loading, error] = useDocumentData(documentRef)
+    const [post, loading] = useDocumentData(documentRef);
 
     return(
         <main className={styles.container}>

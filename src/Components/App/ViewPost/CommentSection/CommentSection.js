@@ -1,7 +1,9 @@
-import React from 'react';
-import {doc, collection} from 'firebase/firestore';
+import React, {useState} from 'react';
+import {collection} from 'firebase/firestore';
+import Comment from './Comment'
 import {useCollectionData} from 'react-firebase-hooks/firestore';    
 import styles from './styles.module.css';
+
 
 
 /* i will need to create another component for the comment replies and i will need to style the elments below*/
@@ -9,31 +11,22 @@ function CommentSection({db, postID}) {
     const commentCollectionRef = collection(db, `posts/${postID}/commentSection`);
     const [comments, loading] = useCollectionData(commentCollectionRef);
 
+
     return(
         loading ? <>loading</> :
         <section className={styles.container}>
-            <div className={styles.totalComments}>
+            <h4 className={styles.totalComments}>
                 {comments.length} Comments
-            </div>
+            </h4>
             {comments.map((comment) => { 
                 return(
-                    <div className={styles.commentContainer} key={comment.id}>
-                        <img src={comment.userImage} className={styles.userImage} alt='user image'/>
-                        <div className={styles.userInfo}>
-                            <h4 className={styles.title}>
-                                Elijah Moss
-                            </h4>
-                            <p className={styles.userEmail}>
-                                @hummingbird1
-                            </p>                            
-                        </div>
-                        <a className={styles.link}>
-                            Reply
-                        </a>
-                        <p className={styles.comment}>
-                            {comment.comment}
-                        </p>
-                    </div>
+                    <Comment 
+                        key={comment.id}
+                        id={comment.id} 
+                        userName={comment.userName} 
+                        userImage={comment.userImage}
+                        db={db}
+                    />
                 )
             })}
         </section>

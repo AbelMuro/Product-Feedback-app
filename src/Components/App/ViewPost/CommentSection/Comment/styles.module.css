@@ -1,0 +1,66 @@
+
+.commentContainer{
+    width: 666px;
+    display: grid;
+    grid-template-columns: 40px 5fr 1fr;
+    row-gap: 17px;
+    column-gap: 32px;
+    border-bottom: 1px solid rgba(140, 146, 179, 0.25);
+    padding-bottom: 32px;
+
+}
+
+
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.userName{
+    font-family: var(--font);
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-font-weight);
+    line-height: var(--h4-line-height);
+    letter-spacing: var(--h4-letter-spacing);
+    color: #3A4374;
+}
+
+.userEmail{
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.23px;
+    color:#647196;
+}
+
+.userImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.replyLink{
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18.79px;
+    color: #4661E6;
+    cursor: pointer;
+}
+
+.replyLink:hover{
+    text-decoration: underline;
+}
+
+
+.comment{
+    grid-column: 2/4;
+    font-family: var(--font);
+    font-size: var(--body-two-font-size);
+    font-weight: var(--body-two-font-weight);
+    line-height: var(--body-two-line-height);
+    color: #647196;
+
+}
