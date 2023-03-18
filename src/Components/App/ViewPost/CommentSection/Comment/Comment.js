@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
-import CommentReply from './CommentReply';
+import VerticalLine from './VerticalLine';
+import DisplayReplies from './DisplayReplies';
+import CommentReply from './../../../ReusableComponents/CommentReply';
 import styles from './styles.module.css';
 
-function Comment({id, userImage, comment}) {
+function Comment({postID, commentID, userName, userEmail, userImage, comment, db}) {
     const [displayCommentReply, setDisplayCommentReply] = useState(false);
 
     const handleReply = () => {
         setDisplayCommentReply(!displayCommentReply);
     }
 
-    return (
-        <div className={styles.commentContainer} key={id}>
+    return(
+        <div className={styles.commentContainer}>
             <img src={userImage} className={styles.userImage} alt='user image'/>
             <div className={styles.userInfo}>
                 <h4 className={styles.userName}>
@@ -23,10 +25,12 @@ function Comment({id, userImage, comment}) {
             <a className={styles.replyLink} onClick={handleReply}>
                 Reply
             </a>
+            <VerticalLine db={db} postID={postID} commentID={commentID}/>
             <p className={styles.comment}>
                 {comment}
             </p>
-            {displayCommentReply ? <CommentReply/> : <></>}
+            {displayCommentReply ? <CommentReply db={db} postID={postID} commentID={commentID} replyTo={userEmail}/> : <></>}
+            <DisplayReplies db={db} postID={postID} commentID={commentID}/>
         </div>
     )
 }

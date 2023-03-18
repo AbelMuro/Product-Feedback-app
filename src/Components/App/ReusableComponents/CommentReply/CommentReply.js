@@ -1,9 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react';
+import {v4 as uuid} from 'uuid'
+import {doc, setDoc} from 'firebase/firestore';
 import styles from './styles.module.css';
 
 
-/* this is where i left off*/
-function CommentReply() {
+function CommentReply({db, postID, commentID, replyTo}) {
     const [reply, setReply] = useState('');
     const inputRef = useRef();
     const errorMessageRef = useRef();
@@ -14,8 +15,26 @@ function CommentReply() {
         errorMessageRef.current.style.display = 'block';
     }
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+            const commentReplyID = uuid();
+            const docRef = doc(db, `posts/${postID}/commentSection/${commentID}/commentReplies/${commentReplyID}`);
+            await setDoc(docRef, {
+                id: commentReplyID,
+                replyTo: replyTo,
+                comment: reply,
+                userName : '',
+                userImage: '',
+                userEmail: '',
+            });     
+        alert('reply submitted')                   
+        }catch(error){
+            console.log("something went wrong", error);
+        }
+
+
+
     }
 
     const handleChange = (e) => {

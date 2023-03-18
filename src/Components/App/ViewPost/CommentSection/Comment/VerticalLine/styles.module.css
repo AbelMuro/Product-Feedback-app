@@ -1,0 +1,7 @@
+.verticalLine{
+    width: 1px;
+    background-color: #647196;
+    grid-row: 2/4;
+    opacity: 0.1;
+    justify-self: center;
+}
