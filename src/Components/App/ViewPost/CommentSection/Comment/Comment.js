@@ -11,6 +11,10 @@ function Comment({postID, commentID, userName, userEmail, userImage, comment}) {
         setDisplayCommentReply(!displayCommentReply);
     }
 
+    const handleClick = () => {
+        setDisplayCommentReply(false);
+    }
+
     return(
         <div className={styles.commentContainer}>
             <img src={userImage} className={styles.userImage} alt='user image' referrerPolicy="no-referrer"/>
@@ -29,7 +33,7 @@ function Comment({postID, commentID, userName, userEmail, userImage, comment}) {
             <p className={styles.comment}>
                 {comment}
             </p>
-            {displayCommentReply ? <CommentReply postID={postID} commentID={commentID} replyTo={userEmail}/> : <></>}
+            {displayCommentReply ? <CommentReply postID={postID} commentID={commentID} replyTo={userEmail} handleClick={handleClick}/> : <></>}
             <DisplayReplies postID={postID} commentID={commentID}/>
         </div>
     )

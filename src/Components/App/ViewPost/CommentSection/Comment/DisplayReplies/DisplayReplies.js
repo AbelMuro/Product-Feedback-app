@@ -13,7 +13,7 @@ function DisplayReplies({postID, commentID}) {
         loading ? <></> :
             replies.map((reply) => {
                 return(
-                    <DisplayReply key={reply.id} {...reply}/>      //every reply will have its own component because it needs to have its own state  
+                    <DisplayReply key={reply.id} postID={postID} commentID={commentID} {...reply}/>      //every reply will have its own component because it needs to have its own state  
                 )
             })
 

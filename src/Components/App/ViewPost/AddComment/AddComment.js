@@ -31,6 +31,7 @@ function AddComment({postID}) {
             return;
         }
         try{
+            /* create date object and store the # of milliseconds between 1970 and todays date in the doc below*/
             const commentID = uuid().replace('/', '');
             const commentCollectionRef = doc(db, `posts/${postID}/commentSection/${commentID}`);                //remember, that every comment will have a unique id
             await setDoc(commentCollectionRef, {

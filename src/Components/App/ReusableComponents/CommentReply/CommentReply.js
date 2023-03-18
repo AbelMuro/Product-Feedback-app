@@ -6,7 +6,7 @@ import {db, auth} from './../../Firebase';
 import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 
 
-function CommentReply({postID, commentID, replyTo}) {
+function CommentReply({postID, commentID, replyTo, handleClick}) {
     const [reply, setReply] = useState('');
     const inputRef = useRef();
     const errorMessageRef = useRef();
@@ -23,19 +23,19 @@ function CommentReply({postID, commentID, replyTo}) {
             alert('You must be logged in with google to post a reply');
             const provider = new GoogleAuthProvider();
             await signInWithPopup(auth, provider);
-            return;
         }
         try{
             const commentReplyID = uuid();
             const docRef = doc(db, `posts/${postID}/commentSection/${commentID}/commentReplies/${commentReplyID}`);
             await setDoc(docRef, {
                 id: commentReplyID,
-                replyTo: replyTo ? replyTo : '',
+                replyTo: replyTo,
                 comment: reply,
                 userName : auth.currentUser.displayName,
                 userImage: auth.currentUser.photoURL,
                 userEmail: auth.currentUser.email,
-            });     
+            });   
+            handleClick();                                  //this event handler is from the parent component, it will close the form once it has been submitted
 
         } catch(error){
             console.log("something went wrong", error);
