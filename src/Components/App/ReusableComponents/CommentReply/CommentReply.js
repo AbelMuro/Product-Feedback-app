@@ -2,9 +2,11 @@ import React, {useState, useRef, useEffect} from 'react';
 import {v4 as uuid} from 'uuid'
 import {doc, setDoc} from 'firebase/firestore';
 import styles from './styles.module.css';
+import {db, auth} from './../../Firebase';
+import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 
 
-function CommentReply({db, postID, commentID, replyTo}) {
+function CommentReply({postID, commentID, replyTo}) {
     const [reply, setReply] = useState('');
     const inputRef = useRef();
     const errorMessageRef = useRef();
@@ -17,24 +19,27 @@ function CommentReply({db, postID, commentID, replyTo}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!auth.currentUser){
+            alert('You must be logged in with google to post a reply');
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+            return;
+        }
         try{
             const commentReplyID = uuid();
             const docRef = doc(db, `posts/${postID}/commentSection/${commentID}/commentReplies/${commentReplyID}`);
             await setDoc(docRef, {
                 id: commentReplyID,
-                replyTo: replyTo,
+                replyTo: replyTo ? replyTo : '',
                 comment: reply,
-                userName : '',
-                userImage: '',
-                userEmail: '',
+                userName : auth.currentUser.displayName,
+                userImage: auth.currentUser.photoURL,
+                userEmail: auth.currentUser.email,
             });     
-        alert('reply submitted')                   
-        }catch(error){
+
+        } catch(error){
             console.log("something went wrong", error);
         }
-
-
-
     }
 
     const handleChange = (e) => {

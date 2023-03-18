@@ -15,9 +15,9 @@ function App() {
         <Provider store={Store}>
                 <BrowserRouter>
                         <Routes>    
-                            <Route path='/' element={<SuggestionsPage db={db}/>}/>
-                            <Route path='/feedback' element={<CreateFeedbackPage db={db}/>}/>
-                            <Route path='/:post' element={<ViewPost db={db}/>}/>
+                            <Route path='/' element={<SuggestionsPage/>}/>
+                            <Route path='/feedback' element={<CreateFeedbackPage/>}/>
+                            <Route path='/:post' element={<ViewPost/>}/>
                         </Routes>
                 </BrowserRouter>                
         </Provider>

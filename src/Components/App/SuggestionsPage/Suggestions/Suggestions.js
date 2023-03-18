@@ -3,11 +3,11 @@ import HeaderBar from './HeaderBar';
 import Posts from './Posts';
 import styles from './styles.module.css';
 
-function SuggestionsPage({db}) {
+function SuggestionsPage() {
     return(
         <section className={styles.container}>
             <HeaderBar/>    
-            <Posts db={db}/>
+            <Posts/>
         </section>
     )
 }

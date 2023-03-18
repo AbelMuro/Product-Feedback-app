@@ -7,9 +7,10 @@ import {useNavigate} from 'react-router-dom';
 import {doc, setDoc} from 'firebase/firestore'
 import {v4 as uuid} from 'uuid'
 import images from './images'
+import {db} from './../Firebase';
 
 
-function CreateFeedbackPage({db}){
+function CreateFeedbackPage(){
     const category = useRef();
     const title = useRef();
     const feedback = useRef();

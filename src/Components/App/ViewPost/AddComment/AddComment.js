@@ -2,11 +2,14 @@ import React, {useState, useRef, useEffect} from 'react';
 import {doc, setDoc} from 'firebase/firestore';
 import {v4 as uuid} from 'uuid';
 import styles from './styles.module.css';
+import {db, auth} from './../../Firebase';
+import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 
-function AddComment({db, postID}) {
+function AddComment({postID}) {
     const [text, setText] = useState('');
     const textAreaRef = useRef();
     const errorMessageRef = useRef();
+    console.log(auth);
 
     const handleChange = (e) => {
         setText(e.target.value);
@@ -18,15 +21,22 @@ function AddComment({db, postID}) {
         errorMessageRef.current.style.display = 'block'
     }
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!auth.currentUser) {
+            alert('you must be logged in with google to post a comment')
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+            return;
+        }
         try{
             const commentID = uuid().replace('/', '');
-            const commentCollectionRef = doc(db, `posts/${postID}/commentSection/${commentID}`);
+            const commentCollectionRef = doc(db, `posts/${postID}/commentSection/${commentID}`);                //remember, that every comment will have a unique id
             await setDoc(commentCollectionRef, {
-                userImage: '',
-                userName: '',
-                userEmail: '',
+                userImage: auth.currentUser.photoURL,
+                userName: auth.currentUser.displayName,
+                userEmail: auth.currentUser.email,
                 comment: text,
                 id: commentID,
             })            

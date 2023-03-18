@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import DisplayReply from './DisplayReply';
 import { collection } from 'firebase/firestore';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
-import styles from './styles.module.css';
+import {db} from './../../../../Firebase';
 
-function DisplayReplies({db, postID, commentID}) {
-    const [openReply, setOpenReply] = useState(false);
+function DisplayReplies({postID, commentID}) {
     const collectionRef = collection(db, `posts/${postID}/commentSection/${commentID}/commentReplies`);
     const [replies, loading, error] = useCollectionData(collectionRef);
 
@@ -14,8 +13,7 @@ function DisplayReplies({db, postID, commentID}) {
         loading ? <></> :
             replies.map((reply) => {
                 return(
-                    <DisplayReply db={db} {...reply}/>
-                    
+                    <DisplayReply key={reply.id} {...reply}/>      //every reply will have its own component because it needs to have its own state  
                 )
             })
 

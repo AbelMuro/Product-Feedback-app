@@ -3,8 +3,9 @@ import {collection} from 'firebase/firestore';
 import Comment from './Comment'
 import {useCollectionData} from 'react-firebase-hooks/firestore';    
 import styles from './styles.module.css';
+import {db} from './../../Firebase';
 
-function CommentSection({db, postID}) {
+function CommentSection({postID}) {
     const commentCollectionRef = collection(db, `posts/${postID}/commentSection`);
     const [comments, loading] = useCollectionData(commentCollectionRef);
 
@@ -15,17 +16,16 @@ function CommentSection({db, postID}) {
             <h4 className={styles.totalComments}>
                 {comments.length} Comments
             </h4>
-            {comments.map((comment) => { 
+            {comments.map((comment) => { {/* im making every comment into its own component because they all need to have their own state */}
                 return(
-                    <Comment 
-                        key={comment.id}
+                    <Comment                                
+                        key={comment.id}        
                         postID={postID}
                         commentID={comment.id} 
                         userName={comment.userName} 
                         userEmail={comment.userEmail}
                         userImage={comment.userImage}
                         comment={comment.comment}
-                        db={db}
                     />
                 )
             })}

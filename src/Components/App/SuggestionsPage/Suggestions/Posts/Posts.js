@@ -5,9 +5,10 @@ import images from './images';
 import {collection} from 'firebase/firestore';
 import {useCollectionData} from 'react-firebase-hooks/firestore';       
 import {useNavigate} from 'react-router-dom'; 
+import {db} from './../../../Firebase';
 
 
-function Posts({db}) {
+function Posts() {
    const postsCollectionRef = collection(db, 'posts');
    const [posts, loading] = useCollectionData(postsCollectionRef);
 
@@ -49,7 +50,6 @@ function Posts({db}) {
                                         <img src={images['commentBubble']} className={styles.commentIcon}/>
                                         {post.comments}
                                     </div>
-                                    
                                 </div>
                             </div>
                         )

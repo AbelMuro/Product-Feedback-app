@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Upvotes from './../ReusableComponents/Upvotes';
 import CommentSection from './CommentSection';
 import AddComment from './AddComment';
@@ -7,12 +7,14 @@ import {doc} from 'firebase/firestore';
 import {useDocumentData} from 'react-firebase-hooks/firestore';     
 import styles from './styles.module.css';
 import icons from './Icons';
+import {db} from './../Firebase';
 
 
-function ViewPost({db}) {
-    const {state} = useLocation();
-    const documentRef = doc(db, 'posts', state);                                  // collection() returns a reference to a collection
+function ViewPost() {
+    const {state} = useLocation();                                      //state is the post-ID of the current post
+    const documentRef = doc(db, 'posts', state);                                 
     const [post, loading] = useDocumentData(documentRef);
+
 
     return(
         <main className={styles.container}>
@@ -25,7 +27,7 @@ function ViewPost({db}) {
                 </button>
             </section>
             {loading ? <>loading</> : 
-                <div className={styles.post} id={post.id} key={post.id}>
+                <div className={styles.post} id={post.id}>
                     <Upvotes upvote={post.upvotes}/>                                         
                     <div className={styles.postInfo} >
                         <h3 className={styles.title}>
@@ -44,8 +46,8 @@ function ViewPost({db}) {
                     </div>
                 </div>
             }
-            <CommentSection db={db} postID={state}/>
-            <AddComment db={db} postID={state}/>
+            <CommentSection postID={state}/>
+            <AddComment postID={state}/>
         </main>
         )
 }
