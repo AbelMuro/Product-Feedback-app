@@ -1,12 +1,13 @@
 import React, {memo} from 'react';
 import DisplayReply from './DisplayReply';
-import { collection } from 'firebase/firestore';
+import { collection, query, orderBy } from 'firebase/firestore';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 import {db} from './../../../../Firebase';
 
 function DisplayReplies({postID, commentID}) {
     const collectionRef = collection(db, `posts/${postID}/commentSection/${commentID}/commentReplies`);
-    const [replies, loading, error] = useCollectionData(collectionRef);
+    const q = query(collectionRef, orderBy('datePosted'))
+    const [replies, loading, error] = useCollectionData(q);
 
 
     return(

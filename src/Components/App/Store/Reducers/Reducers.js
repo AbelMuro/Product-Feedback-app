@@ -8,3 +8,14 @@ export function FilterReducer(state = 'All', action){
             return state;
      }
 }
+
+export function TotalCommentsReducer(state = 0, action) {
+     switch(action.type){
+          case 'add comment':
+               return state + 1;
+          case 'get total':
+               return state;
+          default:
+               return state
+     }
+}

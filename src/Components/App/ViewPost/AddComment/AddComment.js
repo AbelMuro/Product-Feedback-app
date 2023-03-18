@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {doc, setDoc} from 'firebase/firestore';
+import {doc, setDoc, updateDoc, increment} from 'firebase/firestore';
 import {v4 as uuid} from 'uuid';
 import styles from './styles.module.css';
 import {db, auth} from './../../Firebase';
@@ -9,7 +9,6 @@ function AddComment({postID}) {
     const [text, setText] = useState('');
     const textAreaRef = useRef();
     const errorMessageRef = useRef();
-    console.log(auth);
 
     const handleChange = (e) => {
         setText(e.target.value);
@@ -41,7 +40,13 @@ function AddComment({postID}) {
                 comment: text,
                 id: commentID,
                 datePosted: currentDate.getTime()
-            })            
+            })    
+            const postDoc = doc(db, `posts/${postID}`)
+            await updateDoc(postDoc, 
+                {comments: increment(1)}
+            )
+
+            
         } catch(error){
             console.log('something went wrong', error);
         }

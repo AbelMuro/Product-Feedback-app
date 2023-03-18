@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {v4 as uuid} from 'uuid'
-import {doc, setDoc} from 'firebase/firestore';
+import {doc, setDoc, increment} from 'firebase/firestore';
 import styles from './styles.module.css';
 import {db, auth} from './../../Firebase';
 import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
@@ -37,6 +37,10 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
                 userEmail: auth.currentUser.email,
                 datePosted: currentDate.getTime()
             });   
+            const postDoc = doc(db, `posts/${postID}`)
+            await updateDoc(postDoc, 
+                {comments: increment(1)}
+            )
             handleClick();                                  //this event handler is from the parent component, it will close the form once it has been submitted
 
         } catch(error){

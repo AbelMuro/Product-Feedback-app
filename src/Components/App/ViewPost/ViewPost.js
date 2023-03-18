@@ -12,7 +12,7 @@ import {db} from './../Firebase';
 
 function ViewPost() {
     const {state} = useLocation();                                      //state is the post-ID of the current post
-    const documentRef = doc(db, 'posts', state);                                 
+    const documentRef = doc(db, `posts/${state}`);                                 
     const [post, loading] = useDocumentData(documentRef);
 
     return(

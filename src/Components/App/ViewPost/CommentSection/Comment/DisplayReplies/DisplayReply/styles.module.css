@@ -4,7 +4,9 @@
     grid-template-columns: 40px 2fr 0.5fr;
     row-gap: 17px;
     column-gap: 32px;
+    margin-bottom: 15px;
 }
+
 
 .userInfo{
     display: flex;
