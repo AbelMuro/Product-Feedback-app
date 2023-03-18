@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, memo} from 'react';
 import CommentReply from './../../../../../ReusableComponents/CommentReply';
 import styles from './styles.module.css';
 
@@ -44,4 +44,4 @@ function DisplayReply({postID, commentID, userName, userImage, userEmail,comment
     )
 }
 
-export default DisplayReply;
+export default memo(DisplayReply);

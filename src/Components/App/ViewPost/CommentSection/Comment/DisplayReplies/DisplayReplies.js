@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {memo} from 'react';
 import DisplayReply from './DisplayReply';
 import { collection } from 'firebase/firestore';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
@@ -20,4 +20,4 @@ function DisplayReplies({postID, commentID}) {
     )
 }
 
-export default DisplayReplies;
+export default memo(DisplayReplies);

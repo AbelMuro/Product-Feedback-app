@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, memo} from 'react';
 import VerticalLine from './VerticalLine';
 import DisplayReplies from './DisplayReplies';
 import CommentReply from './../../../ReusableComponents/CommentReply';
@@ -39,4 +39,4 @@ function Comment({postID, commentID, userName, userEmail, userImage, comment}) {
     )
 }
 
-export default Comment;
+export default memo(Comment);

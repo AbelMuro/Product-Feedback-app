@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Upvotes from './../ReusableComponents/Upvotes';
 import CommentSection from './CommentSection';
 import AddComment from './AddComment';
@@ -14,7 +14,6 @@ function ViewPost() {
     const {state} = useLocation();                                      //state is the post-ID of the current post
     const documentRef = doc(db, 'posts', state);                                 
     const [post, loading] = useDocumentData(documentRef);
-
 
     return(
         <main className={styles.container}>

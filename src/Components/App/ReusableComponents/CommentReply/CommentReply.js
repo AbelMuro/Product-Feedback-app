@@ -25,6 +25,7 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
             await signInWithPopup(auth, provider);
         }
         try{
+            const currentDate = new Date();
             const commentReplyID = uuid();
             const docRef = doc(db, `posts/${postID}/commentSection/${commentID}/commentReplies/${commentReplyID}`);
             await setDoc(docRef, {
@@ -34,6 +35,7 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
                 userName : auth.currentUser.displayName,
                 userImage: auth.currentUser.photoURL,
                 userEmail: auth.currentUser.email,
+                datePosted: currentDate.getTime()
             });   
             handleClick();                                  //this event handler is from the parent component, it will close the form once it has been submitted
 

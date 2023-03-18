@@ -23,6 +23,7 @@ function CreateFeedbackPage(){
         const feedbackChoosen = feedback.current.state;
         try{
             const postID = uuid();
+            const currentDate = new Date();
             const postDoc = doc(db, 'posts', postID);
             await setDoc(postDoc, {
                 title: titleChoosen,
@@ -31,6 +32,7 @@ function CreateFeedbackPage(){
                 feedback: feedbackChoosen,
                 comments: 0,
                 upvotes: 0,
+                datePosted: currentDate.getTime()                                       //returns the number of milliseconds between today and january 1st 1970
             })
             alert('Post has been submitted')
         }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {collection} from 'firebase/firestore';
+import {collection, query, orderBy} from 'firebase/firestore';
 import Comment from './Comment'
 import {useCollectionData} from 'react-firebase-hooks/firestore';    
 import styles from './styles.module.css';
@@ -7,7 +7,8 @@ import {db} from './../../Firebase';
 
 function CommentSection({postID}) {
     const commentCollectionRef = collection(db, `posts/${postID}/commentSection`);
-    const [comments, loading] = useCollectionData(commentCollectionRef);
+    const q = query(commentCollectionRef, orderBy('datePosted', 'desc'));
+    const [comments, loading] = useCollectionData(q);
 
 
     return(
