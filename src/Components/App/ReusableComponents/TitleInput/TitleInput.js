@@ -1,8 +1,8 @@
 import React, {useState, useRef, forwardRef, useImperativeHandle, useEffect} from 'react';
 import styles from './styles.module.css';
 
-const TitleInput = forwardRef((props, ref) => {
-    const [text, setText] = useState('');
+const TitleInput = forwardRef(({previousTitle}, ref) => {
+    const [text, setText] = useState(previousTitle ? previousTitle : '');
     const errorMessageRef = useRef();
     const inputRef = useRef();
 

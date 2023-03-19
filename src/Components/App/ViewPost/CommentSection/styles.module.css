@@ -9,4 +9,11 @@
     justify-content: space-between;
 }
 
+@media(max-width: 800px){
+    .container{
+        width: 100%;
+        padding: 24px 24px;
+    }
+}
+
 

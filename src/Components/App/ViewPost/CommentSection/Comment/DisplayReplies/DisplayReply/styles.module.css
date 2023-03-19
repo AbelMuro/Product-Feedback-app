@@ -5,6 +5,7 @@
     row-gap: 17px;
     column-gap: 32px;
     margin-bottom: 15px;
+    position: relative;
 }
 
 
@@ -67,4 +68,22 @@
 
 .replyLink:hover{
     text-decoration: underline;
+}
+
+
+@media(max-width: 603px){
+    .container{    
+        gap: 16px;
+    }
+    .userInfo{
+        height: 37.58px;
+    }
+    .userName, .userEmail, .replyLink, .commentReply{
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+
+    .commentReply{
+        grid-column: 1/4;
+    }
 }

@@ -1,5 +1,5 @@
 .commentContainer{
-    width: 666px;
+    width: 100%;
     display: grid;
     grid-template-columns: 40px 5fr 1fr;
     row-gap: 17px;
@@ -65,4 +65,25 @@
     line-height: var(--body-two-line-height);
     color: #647196;
 
+}
+
+
+@media(max-width: 603px){
+    .userName, .userEmail, .replyLink, .comment{
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+
+    .userInfo{
+        height: 37.58px;
+        margin-left: 37px;  
+    }
+
+    .comment{
+        grid-column: 1/4;
+    }
+    .commentContainer{
+        gap: 16px;
+        grid-template-columns: 3px 5fr 1fr;
+    }
 }

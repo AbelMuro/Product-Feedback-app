@@ -180,7 +180,11 @@
     }
 
     .commentContainer{
-        bottom: -131px;
+        bottom: 31px;
+        top: initial;
+        margin: initial;
+        font-size: 13px;
+        
     }
 
     .title{
@@ -225,11 +229,5 @@
         height: 40px;
         font-size: 13px;
         line-height: 18.79px;
-    }
-}
-
-@media(max-width: 516px){
-    .commentContainer{
-        bottom: -151px;
     }
 }

@@ -85,3 +85,27 @@
     background-color: #C75AF6;
 }
 
+
+@media(max-width: 800px){
+    .container{
+        width: 100%;
+    }
+}
+
+@media(max-width: 603px){
+    .textArea{
+        font-size: 13px;
+        padding: 16px;
+    }
+
+    .charactersLeft{
+        font-size: 13px;
+        line-height: 18.79px
+    }
+
+    .button{
+        font-size: 13px;
+        width: 119px;
+        height: 40px;
+    }
+}

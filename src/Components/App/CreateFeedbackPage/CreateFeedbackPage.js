@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
-import TitleInput from './TitleInput'
-import CategoryInput from './CategoryInput';
+import TitleInput from './../ReusableComponents/TitleInput'
+import CategoryInput from './../ReusableComponents/CategoryInput';
 import FeedbackInput from './FeedbackInput';
 import styles from './styles.module.css';
 import {useNavigate} from 'react-router-dom';
@@ -32,7 +32,9 @@ function CreateFeedbackPage(){
                 feedback: feedbackChoosen,
                 comments: 0,
                 upvotes: 0,
-                datePosted: currentDate.getTime()                                       //returns the number of milliseconds between today and january 1st 1970
+                datePosted: currentDate.getTime(),                                       //returns the number of milliseconds between today and january 1st 1970
+                peopleWhoUpvoted: [],
+                status: 'planned'
             })
             alert('Post has been submitted')
         }

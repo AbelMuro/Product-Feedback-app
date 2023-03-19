@@ -2,8 +2,8 @@ import React, {useState, useRef, useEffect, forwardRef, useImperativeHandle} fro
 import images from './images';
 import styles from './styles.module.css';
 
-const CategoryInput = forwardRef((props, ref) => {
-    const [category, setCategory] = useState('Feature');
+const CategoryInput = forwardRef(({previousCategory}, ref) => {
+    const [category, setCategory] = useState(previousCategory ? previousCategory : 'Feature');
     const [openPopup, setOpenPopup] = useState(false);
     const popupRef = useRef();
     const arrowRef = useRef();

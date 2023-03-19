@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {v4 as uuid} from 'uuid'
-import {doc, setDoc, increment} from 'firebase/firestore';
+import {doc, setDoc, increment, updateDoc} from 'firebase/firestore';
 import styles from './styles.module.css';
 import {db, auth} from './../../Firebase';
 import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
@@ -23,6 +23,7 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
             alert('You must be logged in with google to post a reply');
             const provider = new GoogleAuthProvider();
             await signInWithPopup(auth, provider);
+            return;
         }
         try{
             const currentDate = new Date();
@@ -37,8 +38,8 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
                 userEmail: auth.currentUser.email,
                 datePosted: currentDate.getTime()
             });   
-            const postDoc = doc(db, `posts/${postID}`)
-            await updateDoc(postDoc, 
+            const postDocRef = doc(db, `posts/${postID}`)
+            await updateDoc(postDocRef, 
                 {comments: increment(1)}
             )
             handleClick();                                  //this event handler is from the parent component, it will close the form once it has been submitted
@@ -62,6 +63,7 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
     return(
         <form className={styles.container} onSubmit={handleSubmit}>
             <textarea 
+                maxLength={250}
                 type='text'
                 value={reply}
                 onChange={handleChange}

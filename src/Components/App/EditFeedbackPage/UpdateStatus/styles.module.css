@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.desc{
+    margin-bottom: 14px;
+}
+
+.selectBox{
+    height: 48px;
+    border-radius: 5px;
+    background-color: #F7F8FD;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    position: relative;
+    cursor: pointer;
+}
+
+.arrowUp{
+    width: 10px;
+    object-fit: contain;
+    position: absolute;
+    right: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}

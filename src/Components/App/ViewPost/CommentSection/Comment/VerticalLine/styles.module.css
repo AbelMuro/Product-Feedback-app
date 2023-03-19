@@ -5,3 +5,9 @@
     opacity: 0.1;
     justify-self: center;
 }
+
+@media(max-width: 603px){
+    .verticalLine{
+        justify-self: flex-start;
+    }
+}

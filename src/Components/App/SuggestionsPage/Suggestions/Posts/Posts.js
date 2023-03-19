@@ -35,7 +35,7 @@ function Posts() {
                     posts.map((post) => {
                         return(                
                             <div className={styles.post} id={post.id} key={post.id} onClick={handlePost}>
-                                <Upvotes upvote={post.upvotes}/>                                         
+                                <Upvotes upvote={post.upvotes} postID={post.id}/>                                         
                                 <div className={styles.postInfo} >
                                     <h3 className={styles.title}>
                                         {post.title}
@@ -46,11 +46,11 @@ function Posts() {
                                     <div className={styles.category}>
                                         {post.category}
                                     </div>                                    
-                                    <div className={styles.commentContainer}>
-                                        <img src={images['commentBubble']} className={styles.commentIcon}/>
-                                        {post.comments}
-                                    </div>
                                 </div>
+                                <div className={styles.commentContainer}>
+                                    <img src={images['commentBubble']} className={styles.commentIcon}/>
+                                    {post.comments}
+                                </div>                                
                             </div>
                         )
                     }) : 

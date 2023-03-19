@@ -88,6 +88,7 @@
     font-size: var(--h3-font-size);
     font-weight: var(--h3-font-weight);
     line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-letter-spacing);
     color: #3A4374;
 }
 
@@ -120,4 +121,63 @@
 .commentIcon{
     width: 18px;
     object-fit: contain;
+}
+
+@media(max-width: 800px){
+   .container{
+        width: 90%;
+   }
+}
+
+@media(max-width: 603px){
+    .post{
+        flex-direction: column-reverse;
+        gap: 14px;
+   }
+
+   .commentContainer{
+        right: 24px;
+        bottom: 31px;
+        top: initial;
+        margin: initial;
+        font-size: 13px;
+    }
+
+    .postInfo{
+        gap: 9px;
+        margin-bottom: 5px;
+    }
+
+
+   .title{
+        font-size: 13px;
+        line-height: 18.79px;
+        letter-spacing: -0.18px;
+    }
+
+   .desc{
+        font-size: 13px;
+        line-height: 18.79px;
+        margin-bottom: 1px;
+    }
+
+   .category{
+        width: 77px;
+    }
+
+    .links{
+       gap: 15.67px;
+    }
+
+   .editButton{
+        width: 119px;
+        height: 40px;
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+
+   .goBackLink{
+        font-size: 13px;
+        line-height: 18.79px;
+    }
 }
