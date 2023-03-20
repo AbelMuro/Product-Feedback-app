@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import styles from './styles.module.css';
 import icons from './Icons';
 
-function UpdateStatus({previousStatus}){
+
+function UpdateStatus({previousStatus, options}){
     const [status, setStatus] = useState(previousStatus);
+
 
     return(
         <section className={styles.container}>
@@ -14,8 +16,19 @@ function UpdateStatus({previousStatus}){
                 Change feature state
             </p>
             <div className={styles.selectBox}>
-                {status}
+                <span>
+                    {status}
+                </span>
                 <img src={icons['arrowUp']} className={styles.arrowUp}/>
+            </div>
+            <div className={styles.popup}>
+                {options.map((option) => {
+                    return(
+                        <div className={styles.option} data-status={option}>
+                            {option}<img className={styles.checkMark}/>
+                        </div>
+                    )
+                })}
             </div>
         </section>
     )

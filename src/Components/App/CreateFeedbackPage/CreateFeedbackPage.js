@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import TitleInput from './../ReusableComponents/TitleInput'
-import CategoryInput from './../ReusableComponents/CategoryInput';
-import FeedbackInput from './FeedbackInput';
+import SelectInput from './../ReusableComponents/SelectInput';
+import FeedbackInput from './../ReusableComponents/FeedbackInput';
 import styles from './styles.module.css';
 import {useNavigate} from 'react-router-dom';
 import {doc, setDoc} from 'firebase/firestore'
@@ -59,7 +59,7 @@ function CreateFeedbackPage(){
                         Create New Feedback
                     </h1>
                     <TitleInput ref={title}/>
-                    <CategoryInput ref={category}/>
+                    <SelectInput options={['Feature', 'UI', 'UX', 'Enhancement', 'Bug']} defaultState='Feature' ref={category}/>
                     <FeedbackInput ref={feedback}/>
                     <div className={styles.buttons}>
                         <button className={styles.cancelButton} onClick={handleClick}>

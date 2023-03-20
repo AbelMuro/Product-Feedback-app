@@ -1,7 +1,7 @@
 import React from 'react';
 import TitleInput from '../ReusableComponents/TitleInput';
-import CategoryInput from '../ReusableComponents/CategoryInput';
 import UpdateStatus from './UpdateStatus';
+import SelectInput from '../ReusableComponents/SelectInput';
 import {useLocation} from 'react-router-dom';
 import {doc} from 'firebase/firestore';
 import {useDocumentData} from 'react-firebase-hooks/firestore';
@@ -27,8 +27,8 @@ function EditFeedbackPage(){
                    {loading ? '' : `Editing '${post.title}'`}
                 </h1>
                 {loading ? <></> : <TitleInput previousTitle={post.title}/>} 
-                {loading ? <></> : <CategoryInput previousCategory={post.category}/>}
-                {loading ? <></> : <UpdateStatus previousStatus={post.status}/>}
+                {loading ? <></> : <SelectInput options={['Feature', 'UI', 'UX', 'Enhancement', 'Bug']} defaultState={post.category}/>}
+                {loading ? <></> : <UpdateStatus options={['Suggestion', 'Planned', 'In-Progress', 'Live']}previousStatus={post.status}/>}
             </div>
             
         </section>

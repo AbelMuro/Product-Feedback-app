@@ -1,8 +1,8 @@
 import React, {useState, useRef, forwardRef, useImperativeHandle, useEffect} from 'react';
 import styles from './styles.module.css';
 
-const FeedbackInput = forwardRef((props, ref) => {
-    const [text, setText] = useState('');
+const FeedbackInput = forwardRef((prevFeedback, ref) => {
+    const [text, setText] = useState(prevFeedback ? prevFeedback : '');
     const errorMessageRef = useRef();
     const textFieldRef = useRef();
 
