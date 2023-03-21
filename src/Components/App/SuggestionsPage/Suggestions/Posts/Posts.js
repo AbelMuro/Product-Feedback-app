@@ -1,18 +1,29 @@
 import React, {useEffect} from 'react';
+import {useSelector} from 'react-redux';
 import Upvotes from './../../../ReusableComponents/Upvotes';
 import styles from './styles.module.css';
 import images from './images';
-import {collection} from 'firebase/firestore';
+import {collection, query, where, orderBy} from 'firebase/firestore';
 import {useCollectionData} from 'react-firebase-hooks/firestore';       
 import {useNavigate} from 'react-router-dom'; 
 import {db} from './../../../Firebase';
 
 
 function Posts() {
+   const navigate = useNavigate();    
+   const sort = useSelector(state => state.sort);   
+   const filter = useSelector(state => state.filter);
+   const sortOption = sort.includes('Upvotes') ? 'upvotes' : 'comments';
    const postsCollectionRef = collection(db, 'posts');
-   const [posts, loading] = useCollectionData(postsCollectionRef);
+   const q = query(
+        postsCollectionRef, 
+        sort.includes('Most') ? orderBy(sortOption, 'desc') : orderBy(sortOption));
+   const qu = query(
+        postsCollectionRef,
+        where('category', '==', filter),
+   )
 
-   const navigate = useNavigate();
+   const [posts, loading] = useCollectionData(q);
 
    const handleClick = () => {
         navigate('/feedback');

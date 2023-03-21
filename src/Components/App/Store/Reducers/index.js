@@ -1,9 +1,9 @@
-import {FilterReducer, TotalCommentsReducer} from './Reducers.js';
+import {FilterReducer, SortReducer} from './Reducers.js';
 import { combineReducers } from 'redux';
 
 const RootReducer = combineReducers({
     filter: FilterReducer,
-    totalComments: TotalCommentsReducer
+    sort: SortReducer
 })
 
 export default RootReducer;

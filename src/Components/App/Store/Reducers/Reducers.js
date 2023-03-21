@@ -9,13 +9,13 @@ export function FilterReducer(state = 'All', action){
      }
 }
 
-export function TotalCommentsReducer(state = 0, action) {
+export function SortReducer(state = 'Most Upvotes', action){
      switch(action.type){
-          case 'add comment':
-               return state + 1;
-          case 'get total':
+          case "set sort":
+               return action.sort;
+          case "get sort":
                return state;
           default:
-               return state
+               return state;
      }
 }

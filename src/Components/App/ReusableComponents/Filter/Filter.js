@@ -1,17 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 function Filter() {
     const dispatch = useDispatch();
-    const currentFilter = useSelector(state => state.filter);
-
+    const [filter, setFilter] = useState('All');
 
     const handleClick = (e) => {
         const filterOption = e.target.getAttribute('data-filter');
-        dispatch({type: 'set filter', filter: filterOption});
+        setFilter(filterOption);
     }
 
+
+//removing the class (that adds a blue background) from all filter buttons
     useEffect(() => {
         const allFilterOptions = document.querySelectorAll('.' + styles.option);
         allFilterOptions.forEach((option) => {
@@ -20,16 +21,22 @@ function Filter() {
                 option.classList.remove(styles.optionChoosen);
         })
 
-    }, [currentFilter])
+    }, [filter])
 
-    useEffect(() => {
+//adding the class (that adds a blue background) to the filter button that the user clicked on
+   useEffect(() => {
         const allFilterOptions = document.querySelectorAll('.' + styles.option);
         allFilterOptions.forEach((option) => {
-            const filter = option.getAttribute('data-filter')
-            if(filter == currentFilter)
+            const filterOption = option.getAttribute('data-filter')
+            if(filterOption == filter)
                 option.classList.add(styles.optionChoosen);
         })
-    }, [currentFilter])
+    }, [filter])
+
+
+    useEffect(() => {
+        dispatch({type: 'set filter', filter: filter});
+    }, [filter])
 
     return(
         <div className={styles.flexItem}>                               {/* this div is only here to enable min-height on the container element below*/}
