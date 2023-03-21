@@ -1,7 +1,7 @@
 import React, {useState, useRef, forwardRef, useImperativeHandle, useEffect} from 'react';
 import styles from './styles.module.css';
 
-const FeedbackInput = forwardRef((prevFeedback, ref) => {
+const FeedbackInput = forwardRef(({prevFeedback}, ref) => {
     const [text, setText] = useState(prevFeedback ? prevFeedback : '');
     const errorMessageRef = useRef();
     const textFieldRef = useRef();
@@ -9,7 +9,6 @@ const FeedbackInput = forwardRef((prevFeedback, ref) => {
     const handleChange = (e) => {
         setText(e.target.value);
     }
-
 
     const handleBlur = (e) => {
         const isValid = e.target.checkValidity();

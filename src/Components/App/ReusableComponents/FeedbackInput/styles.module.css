@@ -62,12 +62,19 @@
 
 
 @media(max-width: 603px){
-    .title{
+    .container{
+        gap: 3px;
+    }
+    .title, .desc, .textarea{
         font-size: 13px;
         line-height: 18.79px;
     }
     .desc{
-        font-size: 13px;
-        line-height: 18.79px
+        margin-bottom: 13px;
     }
+
+    .textarea{
+        padding: 16px;
+    }
+
 }

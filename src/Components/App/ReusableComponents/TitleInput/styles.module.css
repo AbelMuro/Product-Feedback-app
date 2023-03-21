@@ -62,12 +62,21 @@
 }
 
 @media(max-width: 603px){
-    .title{
+    .container{
+        gap: 3px;
+    }
+
+    .desc{
+        margin-bottom: 13px;
+    }
+
+    .title, .desc, .input{
         font-size: 13px;
         line-height: 18.79px;
     }
-    .desc{
-        font-size: 13px;
-        line-height: 18.79px
+
+    .input{
+        padding: 16px;
     }
+
 }

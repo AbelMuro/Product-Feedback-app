@@ -93,12 +93,25 @@
 
 
 @media(max-width: 603px){
-    .title{
+    .container{
+        gap: 3px;
+    }
+    .desc{
+        margin-bottom: 13px;
+    }
+    .title, .desc, .option, .selectBox{
         font-size: 13px;
         line-height: 18.79px;
     }
-    .desc{
-        font-size: 13px;
-        line-height: 18.79px
+
+    .selectBox{
+        padding: 16px;
+    }
+
+    .popup{
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
     }
 }

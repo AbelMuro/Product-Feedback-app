@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 68px;
-    margin: 92px auto 0px auto;
+    margin: 92px auto 129px auto;
 }
 
 .content{
@@ -56,4 +56,105 @@
     line-height: var(--h1-line-height);
     letter-spacing: var(--h1-letter-spacing);
     color: #3A4374;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.deleteButton, .cancelButton, .submitButton{
+    border-radius: 10px; 
+    color: #F2F4FE;
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 20.23px;
+    font-weight: 700;
+    cursor: pointer;    
+    border: none;
+}
+.deleteButton{
+    width: 93px;
+    height: 44px;
+    background-color: #D73737;
+    justify-self: flex-start;
+}
+
+.deleteButton:hover{
+    background-color: #E98888;
+}
+
+.cancelButton{
+    width: 93px;
+    height: 44px;
+    background-color: #3A4374;
+    justify-self: flex-end;
+}
+
+.cancelButton:hover{
+    background-color: #7C91F9
+}
+
+.submitButton{
+    width: 144px;
+    height: 44px;
+    border-radius: 10px;
+    border: none;
+    background-color: #AD1FEA;
+    justify-self: flex-end;
+}
+
+.submitButton:hover{
+    background-color: #C75AF6;
+}
+
+
+@media(max-width: 603px){
+    .container{
+        width: 90%;
+        margin: 34px auto 77px auto;
+        gap: 55px;
+    }
+
+    .content{
+        padding: 44px 23.5px;
+        height: auto;
+    }
+
+    .editIcon{
+        width: 40px;
+        height: 40px;
+        top: -20px;
+    }
+
+    .title{
+        font-size: 18px;
+        line-height: 26.01px;
+        font-weight: 700;
+        letter-spacing: -0.25px;
+        text-align: center;
+    }
+
+    .buttonsContainer{
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+
+    .buttons{
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+
+    .cancelButton, .deleteButton, .submitButton{
+        width: 100%;
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+
 }

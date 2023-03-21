@@ -105,6 +105,8 @@
     .container{
         width: 90%;
         min-height: 708px;
+        margin: 34px auto 77px auto;
+        gap: 55px;
     }
     .form{
         width: 100%;

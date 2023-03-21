@@ -9,6 +9,7 @@
 }
 
 .selectBox{
+    width: 100%;
     height: 48px;
     border-radius: 5px;
     background-color: #F7F8FD;
@@ -22,6 +23,12 @@
     font-weight: 400;
     line-height: 21.68px;
     color: #3A4374;
+    position: relative;
+    transition: none;
+}
+
+.selectBox:hover{
+    border: 1px solid #4661E6;
 }
 
 .arrowUp{
@@ -49,4 +56,71 @@
     font-weight: 400;
     line-height: 20.23px;
     color: #647196
+}
+.popup{
+    display: none;
+    position: absolute;
+    z-index: var(--closer);
+    top: 56px;
+    left: 0px;
+    width: 456px;
+    height: 191px;
+    background-color: white;
+    box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
+    border-radius: 10px;
+}
+
+
+.option{
+    padding: 12px 24px;
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 23.13px;
+    font-weight: 400;
+    color: #647196;
+    position: relative;
+}
+
+.option:hover{
+    color: #AD1FEA;
+}
+
+.option:not(.option:last-child){
+    border-bottom: 1px solid rgba(58, 67, 116, 0.15);
+}
+
+.checkMark{
+    width: 11px;
+    object-fit: contain;
+    position: absolute;
+    right: 24px;
+    top: 0;
+    bottom : 0;
+    margin: auto;
+}
+
+@media(max-width: 603px){
+    .container{
+        gap: 3px;
+    }
+
+    .title, .desc, .selectBox, .option{
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+    .selectBox{
+        padding: 16px;
+    }
+
+    .desc{
+        margin-bottom: 13px;
+    }
+
+    .popup{
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: auto;
+    }
 }

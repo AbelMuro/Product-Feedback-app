@@ -51,14 +51,6 @@
     object-fit: contain;
 }
 
-.title{
-    font-family: var(--font);
-    font-size: var(--h3-font-size);
-    font-weight: var(--h3-font-weight);
-    line-height: var(--h3-line-height);
-    letter-spacing: var(--h3-letter-spacing);
-    color: white;
-}
 
 @media(max-width: 880px) {
     .suggestionsBox{
