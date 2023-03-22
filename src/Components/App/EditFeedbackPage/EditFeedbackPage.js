@@ -1,4 +1,6 @@
 import React, {useRef} from 'react';
+import LoadingInputs from './LoadingInputs';
+import LoadingTitle from './LoadingTitle';
 import TitleInput from '../ReusableComponents/TitleInput';
 import UpdateStatus from './UpdateStatus';
 import SelectInput from '../ReusableComponents/SelectInput';
@@ -38,10 +40,6 @@ function EditFeedbackPage(){
         catch(error){
             console.log(error);
         }
-
-        
-
-        
     }
 
     const handleSubmit = async (e) => {
@@ -70,12 +68,12 @@ function EditFeedbackPage(){
             <div className={styles.content}>
                 <img src={icons['editIcon']} className={styles.editIcon}/>
                 <h1 className={styles.title}>
-                   {loading ? '' : `Editing '${post.title}'`}
+                   {loading ? <LoadingTitle/> : `Editing '${post.title}'`}
                 </h1>
-                {loading ? <></> : <TitleInput previousTitle={post.title} ref={newTitle}/>} 
-                {loading ? <></> : <SelectInput options={['Feature', 'UI', 'UX', 'Enhancement', 'Bug']} defaultState={post.category} ref={newCategory}/>}
-                {loading ? <></> : <UpdateStatus options={['Suggestion', 'Planned', 'In-Progress', 'Live']} previousStatus={post.status} ref={newStatus}/>}
-                {loading ? <></> : <FeedbackInput prevFeedback={post.feedback} ref={newFeedback}/>}
+                {loading ? <LoadingInputs size={'48px'}/> : <TitleInput previousTitle={post.title} ref={newTitle}/>} 
+                {loading ? <LoadingInputs size={'48px'}/> : <SelectInput options={['Feature', 'UI', 'UX', 'Enhancement', 'Bug']} defaultState={post.category} ref={newCategory}/>}
+                {loading ? <LoadingInputs size={'48px'}/>: <UpdateStatus options={['Suggestion', 'Planned', 'In-Progress', 'Live']} previousStatus={post.status} ref={newStatus}/>}
+                {loading ? <LoadingInputs size={'96px'}/> : <FeedbackInput prevFeedback={post.feedback} ref={newFeedback}/>}
                 <div className={styles.buttonsContainer}>
                     <button className={styles.deleteButton} onClick={handleDelete} type='button'>
                         Delete

@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingPost from './LoadingPost';
 import Upvotes from './../ReusableComponents/Upvotes';
 import CommentSection from './CommentSection';
 import AddComment from './AddComment';
@@ -35,7 +36,7 @@ function ViewPost() {
                     Edit Feedback
                 </button>
             </section>
-            {loading ? <>loading</> : 
+            {loading ? <LoadingPost/>: 
                 <div className={styles.post} id={post.id}>
                     <Upvotes upvote={post.upvotes} postID={state}/>                                         
                     <div className={styles.postInfo}>

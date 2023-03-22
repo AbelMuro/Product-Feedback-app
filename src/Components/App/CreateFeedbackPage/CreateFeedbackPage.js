@@ -36,7 +36,8 @@ function CreateFeedbackPage(){
                 peopleWhoUpvoted: [],
                 status: 'planned'
             })
-            alert('Post has been submitted')
+            alert('Post has been submitted');
+            navigate('/');
         }
         catch(error){
             console.log('something happened', error);

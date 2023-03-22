@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import {useSelector} from 'react-redux'
 import Filter from './../../ReusableComponents/Filter';
 import RoadMap from './../../ReusableComponents/RoadMap';
 import styles from './styles.module.css';
@@ -7,7 +8,8 @@ import images from './images';
 
 /* keep in mind that this component will turn into a mobile menu bar*/
 function LogoBox() {
-    const [showMobileMenu, setShowMobileMenu] = useState(false)
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const filter = useSelector(state => state.filter);
     const overlayRef = useRef()
     const mobileMenuRef = useRef();
 
@@ -72,6 +74,11 @@ function LogoBox() {
         }
 
     }, [showMobileMenu])
+
+    /* this will close the mobile menu when the user changes the category filter*/
+    useEffect(() => {
+        setShowMobileMenu(false);
+    }, [filter])
 
     return(
         <>

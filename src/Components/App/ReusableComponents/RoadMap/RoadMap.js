@@ -1,7 +1,24 @@
 import React from 'react';
+import {collection, doc} from 'firebase/firestore';
+import {useCollectionData} from 'react-firebase-hooks/firestore';
+import {db} from './../../Firebase';
 import styles from './styles.module.css';
 
 function RoadMap() {
+    const collectionRef = collection(db, `posts`);
+    const [posts, loading, error] = useCollectionData(collectionRef);
+
+    const goThroughAllPosts = (status) => {
+        const filteredPosts = posts.filter((post) => {
+            if(post.status == status)
+                return true;
+            else    
+                return false;
+        })
+
+        return filteredPosts.length;
+    }
+
     return(
             <section className={styles.container}>
                 <h3 className={styles.title}>
@@ -17,7 +34,7 @@ function RoadMap() {
                     </p>
                 </div>
                 <div className={styles.currentNumber}>
-                    0
+                    {loading ? '' : goThroughAllPosts('Planned')}
                 </div>
                 <div className={styles.status}>
                     <div className={styles.dotTwo}></div>
@@ -26,7 +43,7 @@ function RoadMap() {
                     </p>
                 </div>
                 <div className={styles.currentNumber}>
-                    0
+                {loading ? '' : goThroughAllPosts('In-Progress')}
                 </div>
                 <div className={styles.status}>
                     <div className={styles.dotThree}></div>
@@ -35,7 +52,7 @@ function RoadMap() {
                     </p>
                 </div>
                 <div className={styles.currentNumber}>
-                    0
+                    {loading ? '' : goThroughAllPosts('Live')}
                 </div>
             </section>
         )

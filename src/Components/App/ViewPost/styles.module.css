@@ -130,6 +130,9 @@
 }
 
 @media(max-width: 603px){
+    .container{
+        margin-top: 34px;
+    }
     .post{
         flex-direction: column-reverse;
         gap: 14px;

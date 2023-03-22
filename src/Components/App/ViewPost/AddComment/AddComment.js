@@ -17,18 +17,20 @@ function AddComment({postID}) {
     const handleInvalid = (e) => {
         e.target.setCustomValidity(' ');
         textAreaRef.current.style.border = '1px solid #D73737';
-        errorMessageRef.current.style.display = 'block'
+        errorMessageRef.current.style.display = 'block';
     }
 
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleClick = async () => {
         if(!auth.currentUser) {
-            alert('you must be logged in with google to post a comment')
+            alert('you must be logged in with google to post a comment');
             const provider = new GoogleAuthProvider();
             await signInWithPopup(auth, provider);
-            return;
         }
+    }
+
+    const handleSubmit = async (e) => {
+        if(!auth.currentUser) return;        
+        e.preventDefault();
         try{
             const currentDate = new Date();
             const commentID = uuid().replace('/', '');
@@ -45,8 +47,6 @@ function AddComment({postID}) {
             await updateDoc(postDoc, 
                 {comments: increment(1)}
             )
-
-            
         } catch(error){
             console.log('something went wrong', error);
         }
@@ -81,7 +81,7 @@ function AddComment({postID}) {
                 <div className={styles.charactersLeft}>
                     {250 - text.length} Characters left
                 </div>              
-                <input type='submit' value='Post Comment' className={styles.button}/>
+                <input type='submit' value='Post Comment' className={styles.button} onClick={handleClick}/>
             </div>
         </form>
         )

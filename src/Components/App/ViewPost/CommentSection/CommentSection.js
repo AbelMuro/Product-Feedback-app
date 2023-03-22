@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingComments from './LoadingComments';
 import TotalComments from './TotalComments';
 import {collection, query, orderBy} from 'firebase/firestore';
 import Comment from './Comment'
@@ -12,7 +13,7 @@ function CommentSection({postID}) {
     const [comments, loading] = useCollectionData(q);
 
     return(
-        loading ? <>loading</> :
+        loading ? <LoadingComments/> :
         <section className={styles.container}>
             <TotalComments postID={postID}/>
             {comments.map((comment) => {            {/* im making every comment into its own component because they all need to have their own state */}
