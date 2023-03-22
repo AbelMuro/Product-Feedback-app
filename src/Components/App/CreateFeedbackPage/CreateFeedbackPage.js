@@ -34,7 +34,7 @@ function CreateFeedbackPage(){
                 upvotes: 0,
                 datePosted: currentDate.getTime(),                                       //returns the number of milliseconds between today and january 1st 1970
                 peopleWhoUpvoted: [],
-                status: 'planned'
+                status: 'Suggestion'
             })
             alert('Post has been submitted');
             navigate('/');

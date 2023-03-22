@@ -24,7 +24,7 @@ function Posts() {
    const [posts, loading] = useCollectionData(q);          
 
    const handlePost = (e) => {  
-        if(!e.target.matches('#upvotes')){                                      //the user will navigate to the /:post route as long as they dont click on the upvotes component
+        if(!e.target.matches('#upvotes')){                    //the user will navigate to the /:post route as long as they dont click on the upvotes component
             const postID = e.target.getAttribute('id');
             navigate('/post', {state: postID});
         }
@@ -32,24 +32,19 @@ function Posts() {
 
    useEffect(() => {
         if(loading) return;
-        if(filter == 'All') {
-            setDisplayMessage(false);
-            return
-        }
-
         const filteredPosts = posts.filter((post) => {          //we filter out the posts that don't have the category that the user requested
             if(post.category == filter)
                 return true;
             else 
                 return false;
         })
-
-        if(!posts.length || !filteredPosts.length)
+        if(filter == 'All' && posts.length)
+            setDisplayMessage(false);
+        else if(!posts.length || !filteredPosts.length)
             setDisplayMessage(true)
         else 
             setDisplayMessage(false);
-
-
+            
    }, [filter, loading])
 
     return(
