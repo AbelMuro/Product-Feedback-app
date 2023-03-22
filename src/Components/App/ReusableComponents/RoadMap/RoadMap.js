@@ -1,10 +1,12 @@
 import React from 'react';
-import {collection, doc} from 'firebase/firestore';
+import {collection} from 'firebase/firestore';
+import {useNavigate} from 'react-router-dom';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 import {db} from './../../Firebase';
 import styles from './styles.module.css';
 
 function RoadMap() {
+    const navigate = useNavigate();
     const collectionRef = collection(db, `posts`);
     const [posts, loading, error] = useCollectionData(collectionRef);
 
@@ -15,8 +17,11 @@ function RoadMap() {
             else    
                 return false;
         })
-
         return filteredPosts.length;
+    }
+
+    const handleClick = () => {
+        navigate('/roadmap');
     }
 
     return(
@@ -24,7 +29,7 @@ function RoadMap() {
                 <h3 className={styles.title}>
                     Roadmap
                 </h3>
-                <a className={styles.viewLink}>
+                <a className={styles.viewLink} onClick={handleClick}>
                     View
                 </a>
                 <div className={styles.status}>
