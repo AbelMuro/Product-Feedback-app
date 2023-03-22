@@ -1,12 +1,13 @@
 import React from 'react';
+import StatusBar from './StatusBar';
 import styles from './styles.module.css';
 
-function AllSuggestions() {
+function AllPosts() {
     return(
         <section className={styles.container}>
-
+            <StatusBar/>
         </section>
     )
 }
 
-export default AllSuggestions
+export default AllPosts
