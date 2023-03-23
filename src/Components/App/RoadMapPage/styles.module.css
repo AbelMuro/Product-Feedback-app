@@ -5,3 +5,9 @@
     flex-direction: column;
     gap: 38px;
 }
+
+@media(max-width: 1160px){
+    .container{
+        width: 90%;
+    }
+}

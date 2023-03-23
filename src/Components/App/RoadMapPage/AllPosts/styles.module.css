@@ -16,3 +16,8 @@
     gap: 24px;
 }
 
+@media(max-width: 1160px){
+    .grid{
+        grid-template-columns: repeat(3, 31.33%);
+    }
+}

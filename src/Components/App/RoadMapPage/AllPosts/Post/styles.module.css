@@ -90,3 +90,9 @@
     width: 18px;
     object-fit: contain;
 }
+
+@media(max-width: 1160px){
+    .container{
+        width: 100%
+    }
+}
