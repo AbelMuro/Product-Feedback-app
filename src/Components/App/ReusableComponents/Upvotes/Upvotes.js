@@ -4,7 +4,7 @@ import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 import {doc, updateDoc, getDoc, arrayUnion, increment} from 'firebase/firestore';
 import styles from './styles.module.css';
 
-function Upvotes({upvote, postID}){
+function Upvotes({upvote, postID, row}){
     const [upvotes, setUpvotes] = useState(upvote);
     const containerRef = useRef();
     const userAlreadyUpvoted = useRef(false);
@@ -42,7 +42,6 @@ function Upvotes({upvote, postID}){
         catch(error){
             console.log(error);
         }
-
     }
 
     const addUserToDatabase = async () =>  {
@@ -55,7 +54,6 @@ function Upvotes({upvote, postID}){
         catch(error){
             console.log(error);
         }
-
     }    
 
     const updateNumberOfUpvotesInDatabase = async () => {
@@ -68,13 +66,22 @@ function Upvotes({upvote, postID}){
         catch(error){
             console.log(error);
         }
-
     }
-
+    /* this will style the upvote component when the user has clicked on it */
     useEffect(() => {
         if(upvotes != upvote)
             containerRef.current.classList.add(styles.upvoted);
     }, [upvotes])
+
+    /* this useEffect is only used for the RoadMap page route , i wanted to re-use this component but i needed to re-style it first*/
+    useEffect(() => {
+        if(row){
+            containerRef.current.style.flexDirection = 'row';
+            containerRef.current.style.minWidth = '69px';
+            containerRef.current.style.height = '40px';
+            containerRef.current.style.gap = '12.5px';
+        }
+    }, [])
 
 
     return(
@@ -82,7 +89,7 @@ function Upvotes({upvote, postID}){
             <div className={styles.arrow}></div>
             {upvotes}
         </section>
-        )
+    )
 }
 
 export default Upvotes;

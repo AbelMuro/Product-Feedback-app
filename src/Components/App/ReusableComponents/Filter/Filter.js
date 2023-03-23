@@ -39,7 +39,7 @@ function Filter() {
     }, [filter])
 
     return(
-        <div className={styles.flexItem}>                               {/* this div is only here to enable min-height on the container element below*/}
+        <div className={styles.flexItem}>                           
             <section className={styles.container}>
                 <div className={styles.flex}>
                     <div className={[styles.option, styles.optionChoosen].join(" ")} onClick={handleClick} data-filter='All'>

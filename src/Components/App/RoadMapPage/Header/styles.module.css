@@ -7,7 +7,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px 40px 0px 32px;
-    background-color: #373F68;
+    background-color: #373F68;   
+    margin-bottom: 16px;
 }
 
 .goBackLinkContainer{

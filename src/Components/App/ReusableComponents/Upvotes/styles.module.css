@@ -1,5 +1,6 @@
 .container{
-    width: 40px;
+    padding: 0px 15px;
+    min-width: 40px;
     height: 53px;
     border-radius: 10px;
     background-color:#F2F4FE;
@@ -43,6 +44,7 @@
 
 @media(max-width: 603px){
     .container{
+        align-self: flex-start;
         flex-direction: row;
         min-width: 55px;
         height: 32px;
