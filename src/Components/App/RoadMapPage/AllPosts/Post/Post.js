@@ -1,9 +1,11 @@
 import React, {useCallback} from 'react';
+import {useNavigate} from 'react-router-dom';
 import Upvotes from './../../../ReusableComponents/Upvotes';
 import styles from './styles.module.css';
 import icons from './Icons';
 
 function Post({post}) {
+    const navigate = useNavigate();
 
     const dotRef = useCallback((ref) => {
         if(!ref) return;
@@ -32,13 +34,17 @@ function Post({post}) {
             ref.style.borderTop = '6px solid #62BCFA';
     })
 
+    const handleClick = () => {
+        navigate('/:post', {state: post.id})
+    }
+
     return(
         <section className={styles.container} ref={containerRef}>
             <div className={styles.dotStatus}>
                 <div className={styles.dot} ref={dotRef}></div>
                 {post.status}
             </div>
-            <a className={styles.title}>
+            <a className={styles.titleLink} onClick={handleClick}>
                 {post.title}
             </a>
             <p className={styles.desc}>
