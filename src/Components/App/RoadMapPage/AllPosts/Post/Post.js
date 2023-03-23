@@ -54,7 +54,7 @@ function Post({post}) {
                 {post.category}
             </div>
             <div className={styles.upvotes_comment}>
-                <Upvotes upvote={post.upvotes} row={true}/>            
+                <Upvotes upvote={post.upvotes} postID={post.id} row={true}/>            
                 <div className={styles.commentContainer}>
                     <img src={icons['commentIcon']} className={styles.commentIcon}/>
                     {post.comments}

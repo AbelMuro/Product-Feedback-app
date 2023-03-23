@@ -1,12 +1,30 @@
 import React from 'react';
+import {collection} from 'firebase/firestore';
+import {useCollectionData} from 'react-firebase-hooks/firestore';
+import {db} from './../../../Firebase';
 import styles from './styles.module.css';
 
 function StatusBar() {
+    const collectionRef = collection(db, 'posts');
+    const [allPosts, loading] = useCollectionData(collectionRef);
+
+
+    const countPostsWithStatus = (status) => {
+        let totalNumber = 0;
+        allPosts.map((post) => {
+            if(post.status == status)  
+                totalNumber++;
+        })
+
+        return totalNumber;
+    }
+    
+
     return(
         <section className={styles.container}>
             <div className={styles.statusTitle}>
                 <h4 className={styles.title}>
-                    Planned
+                    {loading ? '' : `Planned (${countPostsWithStatus('Planned')})`}
                 </h4>
                 <p className={styles.desc}>
                     Ideas prioritized for research
@@ -14,7 +32,7 @@ function StatusBar() {
             </div>
             <div className={styles.statusTitle}>
                 <h4 className={styles.title}>
-                    In-Progress
+                    {loading ? '' : `In-Progress (${countPostsWithStatus('In-Progress')})`}
                 </h4>
                 <p className={styles.desc}>
                     Currently being developed
@@ -22,7 +40,7 @@ function StatusBar() {
             </div>
             <div className={styles.statusTitle}>
                 <h4 className={styles.title}>
-                    Live
+                    {loading ? '' : `Live (${countPostsWithStatus('Live')})`}
                 </h4>
                 <p className={styles.desc}>
                     Released features

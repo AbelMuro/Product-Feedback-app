@@ -3,3 +3,16 @@
     flex-direction: column;
     gap: 4px;
 }
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 30px;
+}
+
+.plannedPosts, .inProgressPosts, .livePosts{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+

@@ -8,16 +8,42 @@ import styles from './styles.module.css';
 
 function AllPosts() {
     const collectionRef = collection(db, `posts`);
-    const [allPosts, loading, error] = useCollectionData(collectionRef);
+    const [allPosts, loading] = useCollectionData(collectionRef);
 
     return(
         <section className={styles.container}>
             <StatusBar/>
-            {loading ? <></> : 
-                allPosts.map((post, i) => {
-                    return(<Post post={post} key={i}/>)
-                })
-            }
+            <div className={styles.grid}>
+                <div className={styles.plannedPosts}>
+                    {loading ? <></> : 
+                        allPosts.map((post, i) => {
+                            if(post.status == 'Planned')
+                                return(<Post post={post} key={i}/>)
+                        })
+                    }                
+                </div>
+                <div className={styles.inProgressPosts}>
+                    {loading ? <></> : 
+                        allPosts.map((post, i) => {
+                            if(post.status == 'In-Progress')
+                                return(<Post post={post} key={i}/>)
+                        })
+                    }
+                </div>
+                <div className={styles.livePosts}>
+                    {loading ? <></> : 
+                        allPosts.map((post, i) => {
+                            if(post.status == 'Live')
+                                return(<Post post={post} key={i}/>)
+                        })
+                    }
+                </div>
+            </div>
+
+
+
+
+
            
         </section>
     )
