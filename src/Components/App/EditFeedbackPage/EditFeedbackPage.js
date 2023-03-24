@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import LoadingInputs from './LoadingInputs';
 import LoadingTitle from './LoadingTitle';
 import TitleInput from '../ReusableComponents/TitleInput';
@@ -58,6 +58,10 @@ function EditFeedbackPage(){
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     return(
         <form className={styles.container} onSubmit={handleSubmit}>

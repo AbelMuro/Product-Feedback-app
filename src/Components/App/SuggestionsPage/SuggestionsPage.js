@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import LogoBox from './LogoBox';
 import Filter from './../ReusableComponents/Filter';
 import RoadMap from './../ReusableComponents/RoadMap';
@@ -9,6 +9,10 @@ import styles from './styles.module.css';
 
 function SuggestionsPage() {
     const mobile = useMediaQuery('(max-width: 603px)')
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     return(
         <main className={styles.container}>

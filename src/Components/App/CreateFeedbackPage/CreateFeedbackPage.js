@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import TitleInput from './../ReusableComponents/TitleInput'
 import SelectInput from './../ReusableComponents/SelectInput';
 import FeedbackInput from './../ReusableComponents/FeedbackInput';
@@ -48,6 +48,10 @@ function CreateFeedbackPage(){
     const handleClick = () => {
         navigate('/')
     }
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     return(
             <main className={styles.container}>

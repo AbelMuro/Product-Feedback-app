@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import LoadingPost from './LoadingPost';
 import Upvotes from './../ReusableComponents/Upvotes';
 import CommentSection from './CommentSection';
@@ -25,6 +25,10 @@ function ViewPost() {
     const handleEditButton = () => {
         navigate('/edit', {state: state});
     }
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     return(
         <main className={styles.container}>
