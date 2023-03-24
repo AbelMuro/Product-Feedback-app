@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
-import Upvotes from './../../../ReusableComponents/Upvotes';
+import Upvotes from './../../../../ReusableComponents/Upvotes';
 import styles from './styles.module.css';
 import icons from './Icons';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import useMediaQuery from './../../../ReusableComponents/useMediaQuery';
+import useMediaQuery from './../../../../ReusableComponents/useMediaQuery';
 import {Skeleton, Stack} from '@mui/material';
 
 function LoadingPosts() {

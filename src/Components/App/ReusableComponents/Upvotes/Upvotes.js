@@ -26,8 +26,8 @@ function Upvotes({upvote, postID, row}){
             if(!snapshot) return; 
             
             const data = snapshot.data();
-            data.peopleWhoUpvoted.forEach((people) => {
-                if(people == auth.currentUser.displayName)
+            data.peopleWhoUpvoted.forEach((people) => {         //people is just a long string that represents an ID
+                if(people == auth.currentUser.uid)
                     userAlreadyUpvoted.current = true;
             })
 
@@ -48,7 +48,7 @@ function Upvotes({upvote, postID, row}){
         const postRef = doc(db, `posts/${postID}`);
         try{
             await updateDoc(postRef, {
-                peopleWhoUpvoted: arrayUnion(auth.currentUser.displayName)
+                peopleWhoUpvoted: arrayUnion(auth.currentUser.uid)
             })            
         }
         catch(error){
@@ -82,7 +82,6 @@ function Upvotes({upvote, postID, row}){
             containerRef.current.style.gap = '12.5px';
         }
     }, [])
-
 
     return(
         <section id='upvotes' className={styles.container} onClick={handleClick} ref={containerRef}>
