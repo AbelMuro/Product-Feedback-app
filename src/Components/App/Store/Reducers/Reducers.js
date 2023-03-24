@@ -19,3 +19,14 @@ export function SortReducer(state = 'Most Upvotes', action){
                return state;
      }
 }
+
+export function StatusReducer(state = 'Planned', action){
+     switch(action.type){
+          case 'set status':
+               return action.status;
+          case 'get status':
+               return state;
+          default:
+               return state;
+     }
+}

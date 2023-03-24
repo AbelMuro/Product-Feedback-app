@@ -18,7 +18,6 @@ function Post({post}) {
 
         else if(post.status == 'Live')
             ref.style.backgroundColor = '#62BCFA';
-
     })
 
     const containerRef = useCallback((ref) => {

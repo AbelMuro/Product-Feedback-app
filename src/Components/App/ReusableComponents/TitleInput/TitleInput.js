@@ -50,6 +50,7 @@ const TitleInput = forwardRef(({previousTitle}, ref) => {
                 Add a short, descriptive headline
             </p>
             <input 
+                maxLength={45}
                 type='text'
                 value={text} 
                 onChange={handleChange} 

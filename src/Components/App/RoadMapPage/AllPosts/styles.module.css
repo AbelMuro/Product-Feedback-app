@@ -6,11 +6,12 @@
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 350px);
     column-gap: 30px;
 }
 
-.plannedPosts, .inProgressPosts, .livePosts{
+.posts{
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -19,5 +20,13 @@
 @media(max-width: 1160px){
     .grid{
         grid-template-columns: repeat(3, 31.33%);
+        gap: 10px;
+    }
+}
+
+@media(max-width: 606px){
+    .grid{
+        grid-template-columns: 90%;
+        justify-content: center;
     }
 }

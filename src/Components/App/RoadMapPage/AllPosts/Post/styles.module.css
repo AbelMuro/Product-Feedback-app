@@ -96,3 +96,18 @@
         width: 100%
     }
 }
+
+@media(max-width: 800px){
+    .dotStatus, .titleLink, .desc, .commentContainer{
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+    .dotStatus{
+        margin-bottom: 10px;
+    }
+
+    .titleLink{
+        margin-bottom: 5px;
+    }
+
+}

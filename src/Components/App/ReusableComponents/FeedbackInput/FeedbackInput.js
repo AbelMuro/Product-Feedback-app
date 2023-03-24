@@ -49,6 +49,7 @@ const FeedbackInput = forwardRef(({prevFeedback}, ref) => {
                 Include any specific comments on what should be improved, added, etc.
             </p>
             <textarea 
+                maxLength={250}
                 className={styles.textarea}
                 value={text}
                 onChange={handleChange}

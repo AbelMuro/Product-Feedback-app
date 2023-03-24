@@ -48,7 +48,7 @@
     width: 158px;
     height: 44px;
     font-family: var(--font);
-    font-size: var(--h4--font-size);
+    font-size: var(--h4-font-size);
     font-weight: var(--h4-font-weight);
     line-height: var(--h4-line-height);
     letter-spacing: var(--h4-letter-spacing);
@@ -61,4 +61,28 @@
 
 .addButton:hover{
     background-color: #C75AF6;
+}
+
+@media(max-width: 607px){
+    .container{
+        border-radius: 0px;
+        height: 100px;
+        margin-bottom: 0px;
+    }
+
+    .goBackLink{
+        width: 71.67px;
+        font-size: 13px;
+        line-height: 18.79px;
+    }
+    .title{
+        font-size: 18px;
+        line-height: 26.01px;
+    }
+    .addButton{
+        width: 134px;
+        height: 40px;
+        font-size: 13px;
+        line-height: 18.79px;
+    }
 }
