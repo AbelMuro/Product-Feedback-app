@@ -3,7 +3,7 @@ import {v4 as uuid} from 'uuid'
 import {doc, setDoc, increment, updateDoc} from 'firebase/firestore';
 import styles from './styles.module.css';
 import {db, auth} from './../../Firebase';
-import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import { GoogleAuthProvider, reauthenticateWithCredential, signInWithPopup} from 'firebase/auth'
 
 
 function CommentReply({postID, commentID, replyTo, handleClick}) {
@@ -17,14 +17,23 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
         errorMessageRef.current.style.display = 'block';
     }
 
+    const handleLogIn = async () => {
+        if(auth.currentUser) return;
+        const answer = confirm('You must be logged in with google to post a reply, would you like to log in?');
+        if(!answer) return;
+        try{
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);            
+        }
+        catch(error){
+            alert('Please enable popups in your browser');
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(!auth.currentUser){
-            alert('You must be logged in with google to post a reply');
-            const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
-            return;
-        }
+        if(!auth.currentUser) return;
+
         try{
             const currentDate = new Date();
             const commentReplyID = uuid();
@@ -77,7 +86,7 @@ function CommentReply({postID, commentID, replyTo, handleClick}) {
                 Can't be empty
             </div>
 
-            <input type='submit' className={styles.submitButton} value='Post Reply'/>
+            <input type='submit' className={styles.submitButton} value='Post Reply' onClick={handleLogIn}/>
         </form>
     )
 }

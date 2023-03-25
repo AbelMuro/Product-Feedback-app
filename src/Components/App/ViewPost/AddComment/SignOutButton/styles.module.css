@@ -1,0 +1,19 @@
+.signOut{
+    width: 102px;
+    height: 25px;
+    border: none;
+    border-radius: 7px;
+    background-color:#D73737;
+    color: white;
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.signOut:hover{
+    background-color: #E98888;
+}

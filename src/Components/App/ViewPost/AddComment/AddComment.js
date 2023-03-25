@@ -1,9 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react';
+import SignOutButton from './SignOutButton';
 import {doc, setDoc, updateDoc, increment} from 'firebase/firestore';
 import {v4 as uuid} from 'uuid';
 import styles from './styles.module.css';
 import {db, auth} from './../../Firebase';
-import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 
 function AddComment({postID}) {
     const [text, setText] = useState('');
@@ -21,19 +22,26 @@ function AddComment({postID}) {
     }
 
     const handleClick = async () => {
-        if(!auth.currentUser) {
-            alert('you must be logged in with google to post a comment');
-            const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
+        if(auth.currentUser) return;
+        const answer = confirm('To post a comment, you must log in with google, would you like to log in?');
+        if(!answer) return;
+        const provider = new GoogleAuthProvider();
+        try{
+            await signInWithPopup(auth, provider);       
         }
+        catch(error){
+            alert('Please enable popups in your browser')
+        }
+             
     }
 
     const handleSubmit = async (e) => {
-        if(!auth.currentUser) return;        
-        e.preventDefault();
+        e.preventDefault();             
+        if(!auth.currentUser) return;       
+    
         try{
             const currentDate = new Date();
-            const commentID = uuid().replace('/', '');
+            const commentID = uuid();
             const commentCollectionRef = doc(db, `posts/${postID}/commentSection/${commentID}`);                //remember, that every comment will have a unique id
             await setDoc(commentCollectionRef, {
                 userImage: auth.currentUser.photoURL,
@@ -47,6 +55,7 @@ function AddComment({postID}) {
             await updateDoc(postDoc, 
                 {comments: increment(1)}
             )
+            window.scrollTo(0,0);
         } catch(error){
             console.log('something went wrong', error);
         }
@@ -59,8 +68,11 @@ function AddComment({postID}) {
         errorMessageRef.current.style.display = '';
     }, [text])
 
+
+
     return(
         <form className={styles.container} onSubmit={handleSubmit}>
+            <SignOutButton/>
             <h3 className={styles.title}>
                 Add Comment
             </h3>

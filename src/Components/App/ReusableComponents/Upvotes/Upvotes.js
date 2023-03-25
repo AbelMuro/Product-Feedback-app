@@ -9,14 +9,22 @@ function Upvotes({upvote, postID, row}){
     const containerRef = useRef();
     const userAlreadyUpvoted = useRef(false);
 
-    const handleClick = () => {
-        if(!auth.currentUser) {
-            alert('You must be logged in with google to upvote a feedback post');
-            const provider = new GoogleAuthProvider();
-            signInWithPopup(auth, provider);
+    const handleClick = async () => {
+        if(auth.currentUser){
+            checkUserIfTheyUpvotedBefore();
             return;
+        } 
+        const answer = confirm('You must be logged in with google to upvote a feedback post, would you like to log in?');
+        if(!answer) return;
+        try{
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
         }
-        checkUserIfTheyUpvotedBefore();
+        catch(error){
+            alert('Please enable popups in your browser')
+        }
+
+
     }   
 
     const checkUserIfTheyUpvotedBefore = async () => {

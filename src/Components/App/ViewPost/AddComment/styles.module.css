@@ -86,6 +86,7 @@
 }
 
 
+
 @media(max-width: 800px){
     .container{
         width: 100%;
@@ -107,5 +108,9 @@
         font-size: 13px;
         width: 119px;
         height: 40px;
+    }
+
+    .signOut{
+        width: 80px;
     }
 }
