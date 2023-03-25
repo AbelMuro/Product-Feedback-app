@@ -56,7 +56,7 @@ function CreateFeedbackPage(){
     return(
             <main className={styles.container}>
                 <a className={styles.goBackLink} onClick={handleClick}>
-                    <img src={images['leftArrow']} className={styles.arrowLeft}/>Go Back
+                    <img src={images['leftArrow']} className={styles.arrowLeft} alt='plus icon'/>Go Back
                 </a>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <img src={images['plus']} className={styles.plus}/>

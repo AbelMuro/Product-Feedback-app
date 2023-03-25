@@ -67,7 +67,7 @@ const SelectInput = forwardRef(({options, defaultState}, ref) => {
                         return(
                             <p className={styles.option} onClick={handleOption} data-option={option} key={option}>
                                 {option}
-                                <img className={styles.checkMark}/>
+                                <img className={styles.checkMark} alt='check mark'/>
                             </p>
                         )
                     })}
