@@ -3,7 +3,6 @@
     height: 250px;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
     text-align: center;
 }
@@ -19,6 +18,14 @@
 
 @media(max-width: 1160px){
     .container{
-        width: 100%
+        width: 100%;
     }
+}
+
+
+@media(max-width: 607px){
+    .container{
+        justify-content: center;        
+    }
+
 }
