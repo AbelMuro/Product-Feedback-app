@@ -56,6 +56,7 @@ function AddComment({postID}) {
                 {comments: increment(1)}
             )
             window.scrollTo(0,0);
+            setText('');
         } catch(error){
             console.log('something went wrong', error);
         }
