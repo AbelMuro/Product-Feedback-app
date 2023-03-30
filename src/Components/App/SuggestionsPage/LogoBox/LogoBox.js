@@ -4,11 +4,13 @@ import Filter from './../../ReusableComponents/Filter';
 import RoadMap from './../../ReusableComponents/RoadMap';
 import styles from './styles.module.css';
 import images from './images';
+import { useMediaQuery } from '@mui/material';
 
 
 /* keep in mind that this component will turn into a mobile menu bar*/
 function LogoBox() {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const mobile = useMediaQuery('(max-width: 603px)');
     const filter = useSelector(state => state.filter);
     const overlayRef = useRef()
     const mobileMenuRef = useRef();
@@ -74,6 +76,12 @@ function LogoBox() {
         }
 
     }, [showMobileMenu])
+
+    useEffect(() => {
+        if(!mobile) 
+            setShowMobileMenu(false)
+        
+    }, [mobile])
 
     /* this will close the mobile menu when the user changes the category filter*/
     useEffect(() => {
