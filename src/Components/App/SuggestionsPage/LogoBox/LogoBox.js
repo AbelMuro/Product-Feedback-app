@@ -79,8 +79,7 @@ function LogoBox() {
 
     useEffect(() => {
         if(!mobile) 
-            setShowMobileMenu(false)
-        
+            setShowMobileMenu(false);
     }, [mobile])
 
     /* this will close the mobile menu when the user changes the category filter*/

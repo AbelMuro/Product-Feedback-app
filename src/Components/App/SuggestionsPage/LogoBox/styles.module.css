@@ -19,6 +19,7 @@
 }
 
 .title{
+    white-space: nowrap;
     font-family: var(--font);
     font-size: var(--h2-font-size);
     line-height: var(--h2-line-height);
@@ -28,6 +29,7 @@
 }
 
 .desc{
+    white-space: nowrap;
     font-family: var(--font);
     font-weight: 500;
     font-size: 15px;
