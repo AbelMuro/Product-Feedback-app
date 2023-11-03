@@ -15,7 +15,7 @@ module.exports = {
             filename: 'index.html',          
             template: './src/index.html'
         }),
-        new dotenv()         
+        new dotenv         
     ],
     devServer: {                              
         port: 3000,                        
